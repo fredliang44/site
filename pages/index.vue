@@ -31,8 +31,8 @@
           </div>
 
           <div class="wave-cards">
-            <AcrylicCard />
-            <AcrylicCard />
+            <AcrylicCard title="Demonstrably Scale" />
+            <AcrylicCard title="FinTech" />
             <AcrylicCard />
             <AcrylicCard />
           </div>
@@ -61,7 +61,7 @@ export default {
     this.fadIn('.product-text')
     this.fadIn('.self-discription-text')
     this.$anime
-      .timeline({ loop: false, duration: 0 })
+      .timeline({ loop: false, duration: 10 })
       .add({
         targets: '.intro-line-1 .letter',
         translateX: [100, 0],
@@ -69,7 +69,7 @@ export default {
         opacity: [0, 1],
         easing: 'easeOutExpo',
         duration: 800,
-        delay: (el, i) => 500 + 30 * i,
+        delay: (el, i) => 200 + 30 * i,
       })
       .add({
         targets: '.intro-line-2 .letter',
@@ -77,7 +77,7 @@ export default {
         translateZ: 0,
         opacity: [0, 1],
         easing: 'easeOutExpo',
-        duration: 400,
+        duration: 500,
         delay: (el, i) => 30 * i,
       })
       .add({
@@ -86,8 +86,8 @@ export default {
         translateZ: 0,
         opacity: [0, 1],
         easing: 'easeOutExpo',
-        duration: 200,
-        delay: (el, i) => 500 + 30 * i,
+        duration: 500,
+        delay: (el, i) => 30 * i,
       })
       .add({
         targets: '.self-discription-text .letter',
@@ -96,7 +96,7 @@ export default {
         opacity: [0, 1],
         easing: 'easeOutExpo',
         duration: 800,
-        delay: (el, i) => 500 + 30 * i,
+        delay: (el, i) => 30 * i,
       })
 
     this.$gsap.to('.skills', {
@@ -135,14 +135,10 @@ export default {
 
 <style lang="less">
 .dark-mode {
-  .title {
-    color: white;
+  h2,
+  h3 {
+    color: rgba(255, 255, 255, 0.7);
   }
-
-  .self-discription-text {
-    color: white;
-  }
-
   .new-wave {
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -220,10 +216,7 @@ export default {
       }
       .new-wave-content {
         padding: 60px 0 0 0;
-        h2,
-        h3 {
-          color: rgba(255, 255, 255, 0.72);
-        }
+
         h2 {
           font-size: 42px;
         }

@@ -15,13 +15,25 @@ export default {
   },
 }
 </script>
-<style>
+<style lang="less">
 .app {
   font-family: Product Sans, Arial, Helvetica, sans-serif;
 }
 
-.dark-mode body {
-  background-color: black;
+.dark-mode {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  p {
+    color: white;
+  }
+
+  body {
+    background-color: black;
+  }
 }
 
 html {
