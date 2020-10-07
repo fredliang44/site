@@ -1305,6 +1305,14 @@
     consola "^2.15.0"
     defu "^3.1.0"
 
+"@nuxtjs/color-mode@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/@nuxtjs/color-mode/-/color-mode-1.1.1.tgz#588fb4a8ae7de6bea6da85324dfebadf98463972"
+  integrity sha512-Q091KLVMX4ZhVnwgNE2eKdjkaMZRdfVsKISI4kOsWBxJgj/PdPAQpGcSjLIOTB+l1XuLGLmh7hUtLOIM8FE0gA==
+  dependencies:
+    defu "^2.0.4"
+    lodash.template "^4.5.0"
+
 "@nuxtjs/eslint-config@^3.1.0":
   version "3.1.0"
   resolved "https://registry.npmjs.org/@nuxtjs/eslint-config/-/eslint-config-3.1.0.tgz#7e73aa08035a743b99e64ee4337cf526a09c9973"
@@ -1333,6 +1341,14 @@
   integrity sha512-rDQTwHIjyjVrx8GywHPuWykJ3jRFGaHl5Iqji/y8tQWUc0yGEeHxOoR0yimzxnTS1Ph2/PubQYpgnVeEPEdL/A==
   dependencies:
     vue-analytics "^5.22.1"
+
+"@nuxtjs/gtm@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.npmjs.org/@nuxtjs/gtm/-/gtm-2.3.2.tgz#7b1b9a37f8250c475007cfde1294b7b8bc43d025"
+  integrity sha512-DC4m8mqKv8WkmFZJ/qEnpDXhJgbMQfTyny1p2GGbV+QzEtm61tAsNIjx9tO15KYH99EG3LqJN68RxsEMtn2ZVQ==
+  dependencies:
+    chalk "^4.1.0"
+    semver "^7.3.2"
 
 "@nuxtjs/proxy@^2.0.1":
   version "2.0.1"
@@ -6524,14 +6540,6 @@ num2fraction@^1.2.2:
   resolved "https://registry.npmjs.org/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
 
-nuxt-google-optimize@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.npmjs.org/nuxt-google-optimize/-/nuxt-google-optimize-0.5.4.tgz#968e3d762858f0d67c2f8df935884732b732a282"
-  integrity sha512-DSa5Y5isQI9mUikeqHbeqqzFDDIWhlilJAdVguvgt9GRU7mZgPlC7w0eL5DYd8Z7SEjzT3B4dLUmdtC7eGutQw==
-  dependencies:
-    cookie "^0.3.1"
-    weighted-random "^0.1.0"
-
 nuxt@^2.14.5:
   version "2.14.6"
   resolved "https://registry.npmjs.org/nuxt/-/nuxt-2.14.6.tgz#56ba99cbd055ebdb33250a4d1ed09f084ad7fa14"
@@ -9035,11 +9043,6 @@ thread-loader@^2.1.3:
     loader-utils "^1.1.0"
     neo-async "^2.6.0"
 
-three@^0.121.1:
-  version "0.121.1"
-  resolved "https://registry.npmjs.org/three/-/three-0.121.1.tgz#fda39cf4701d02be9c3be5c27ccea24b7a1ea59b"
-  integrity sha512-+rYhNpW5W1aBdLkPQDld/GA4Sj/uOKJJKVpCAZUbpk/HZEiYRUlPt8+s+9nmxRglWmRHdBa3ERvUwqg4nmoA5w==
-
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.npmjs.org/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -9814,11 +9817,6 @@ webpackbar@^4.0.0:
     std-env "^2.2.1"
     text-table "^0.2.0"
     wrap-ansi "^6.0.0"
-
-weighted-random@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/weighted-random/-/weighted-random-0.1.0.tgz#3a5469a649fc39c067e217d91b18f7402541156d"
-  integrity sha1-OlRppkn8OcBn4hfZGxj3QCVBFW0=
 
 which-typed-array@^1.1.2:
   version "1.1.2"

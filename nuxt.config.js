@@ -17,7 +17,11 @@ export default {
   css: ['normalize.css/normalize.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['@/plugins/anime', '@/plugins/gasp'],
+  plugins: [
+    '@/plugins/anime',
+    '@/plugins/gasp',
+    '@/plugins/iconfont.client.js',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -44,10 +48,20 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    // https://github.com/nuxt-community/google-optimize-module
-    'nuxt-google-optimize',
+
+    // https://github.com/nuxt-community/color-mode-module
+    '@nuxtjs/color-mode',
+
+    // https://github.com/nuxt-community/google-optimize-module#readme
+    // 'nuxt-google-optimize',
+
+    // // https://github.com/nuxt-community/gtm-module
+    // '@nuxtjs/gtm',
   ],
 
+  // gtm: {
+  //   id: 'GTM-NFVB8GC',
+  // },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 

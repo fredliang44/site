@@ -3,10 +3,25 @@
     <Nuxt />
   </div>
 </template>
-
+<script>
+export default {
+  mounted() {
+    const optmizeScript = document.createElement('script')
+    optmizeScript.setAttribute(
+      'src',
+      'https://www.googleoptimize.com/optimize.js?id=OPT-57XL8N9'
+    )
+    document.head.appendChild(optmizeScript)
+  },
+}
+</script>
 <style>
 .app {
   font-family: Product Sans, Arial, Helvetica, sans-serif;
+}
+
+.dark-mode body {
+  background-color: black;
 }
 
 html {
@@ -17,7 +32,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background: #fff;
 }
 
 *,

@@ -30,7 +30,12 @@
             </h3>
           </div>
 
-          <div class="wave-card"></div>
+          <div class="wave-cards">
+            <AcrylicCard />
+            <AcrylicCard />
+            <AcrylicCard />
+            <AcrylicCard />
+          </div>
         </div>
 
         <!-- <div class="filter"></div> -->
@@ -129,6 +134,20 @@ export default {
 </script>
 
 <style lang="less">
+.dark-mode {
+  .title {
+    color: white;
+  }
+
+  .self-discription-text {
+    color: white;
+  }
+
+  .new-wave {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 .main {
   overflow: hidden;
   .content {
@@ -147,7 +166,7 @@ export default {
         background: repeating-linear-gradient(
           -45deg,
           red 0%,
-          // yellow 7.14%,
+          yellow 7.14%,
           // rgb(0, 255, 0) 14.28%,
           rgb(0, 255, 255) 11.4%,
           // cyan 28.56%,
@@ -186,11 +205,18 @@ export default {
       position: relative;
       height: 800px;
 
-      .wave-card {
-        margin: 60px 0 0 0;
+      .wave-cards {
+        margin: 48px 0 0 0;
         width: 100%;
         height: 572px;
-        background: rgba(255, 255, 255, 1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .acrylic-card {
+          width: 48%;
+          height: 42%;
+        }
       }
       .new-wave-content {
         padding: 60px 0 0 0;

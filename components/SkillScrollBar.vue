@@ -52,6 +52,14 @@ export default {
 </script>
 
 <style lang="less">
+.dark-mode .tools > p {
+  color: rgb(180, 180, 180);
+}
+
+.dark-mode .skills > p {
+  color: rgb(180, 180, 180);
+}
+
 .skills,
 .tools {
   p {
