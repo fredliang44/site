@@ -43,7 +43,7 @@ export default {}
       margin-right: 16px;
       a {
         text-decoration: none;
-        color: #424242;
+        color: black;
       }
     }
   }

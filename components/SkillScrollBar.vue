@@ -18,7 +18,7 @@ const skills = [
   'Backend',
   'Web Development',
   'Filming',
-  'Special Effects',
+  'Visual Design',
   'Post-Processing',
   'Frontend',
   'Video Editing',

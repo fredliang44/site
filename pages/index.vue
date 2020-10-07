@@ -12,11 +12,30 @@
         </div>
       </div>
 
-      <div class="place-holder" style="height: 300px"></div>
+      <div class="container" style="height: 300px">
+        <div class="self-discription">
+          <h3 class="self-discription-text">Currently @ByteDance</h3>
+        </div>
+      </div>
       <SkillScrollBar />
       <Background />
       <div class="place-holder" style="height: 200px"></div>
-      <GradientBackground />
+
+      <div class="new-wave">
+        <div class="container">
+          <div class="new-wave-content">
+            <h2>Working inside the new wave of infrastructure revolution</h2>
+            <h3>
+              SaaS products supercharge the growth of companys in the new era
+            </h3>
+          </div>
+
+          <div class="wave-card"></div>
+        </div>
+
+        <!-- <div class="filter"></div> -->
+        <GradientBackground />
+      </div>
     </div>
 
     <Footer />
@@ -26,10 +45,16 @@
 <script>
 // import anime from 'animejs/lib/anime.es.js'
 export default {
+  data() {
+    return {
+      anime: this.$anime,
+    }
+  },
   mounted() {
     this.fadIn('.intro-line-1')
     this.fadIn('.intro-line-2')
     this.fadIn('.product-text')
+    this.fadIn('.self-discription-text')
     this.$anime
       .timeline({ loop: false, duration: 0 })
       .add({
@@ -47,8 +72,8 @@ export default {
         translateZ: 0,
         opacity: [0, 1],
         easing: 'easeOutExpo',
-        duration: 1200,
-        delay: (el, i) => 500 + 30 * i,
+        duration: 400,
+        delay: (el, i) => 30 * i,
       })
       .add({
         targets: '.product-text .letter',
@@ -56,8 +81,17 @@ export default {
         translateZ: 0,
         opacity: [0, 1],
         easing: 'easeOutExpo',
-        duration: 100,
-        delay: (el, i) => 30 * i,
+        duration: 200,
+        delay: (el, i) => 500 + 30 * i,
+      })
+      .add({
+        targets: '.self-discription-text .letter',
+        translateX: [10, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 800,
+        delay: (el, i) => 500 + 30 * i,
       })
 
     this.$gsap.to('.skills', {
@@ -124,22 +158,70 @@ export default {
         background-size: 300vw 300vw;
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
+        background-clip: text;
         animation: slide 10s linear infinite forwards;
+        @keyframes slide {
+          0% {
+            background-position-x: 0%;
+          }
+          100% {
+            background-position-x: 600vw;
+          }
+        }
       }
-      @keyframes slide {
-        0% {
-          background-position-x: 0%;
+    }
+
+    .self-discription {
+      padding: 20px 0;
+
+      h3 {
+        font-size: 32px;
+      }
+      .letter {
+        display: inline-block;
+      }
+    }
+
+    .new-wave {
+      position: relative;
+      height: 800px;
+
+      .wave-card {
+        margin: 60px 0 0 0;
+        width: 100%;
+        height: 572px;
+        background: rgba(255, 255, 255, 1);
+      }
+      .new-wave-content {
+        padding: 60px 0 0 0;
+        h2,
+        h3 {
+          color: rgba(255, 255, 255, 0.72);
         }
-        100% {
-          background-position-x: 600vw;
+        h2 {
+          font-size: 42px;
         }
+      }
+      .filter {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0);
+        position: absolute;
+        top: 0;
+        z-index: -9;
+      }
+      .grident {
+        position: absolute;
+        top: 0;
+        z-index: -10;
       }
     }
   }
 }
 .container {
-  margin: 0;
+  margin: 0 auto;
   padding: 0 36px;
   max-width: 1200px;
+  width: 100%;
 }
 </style>

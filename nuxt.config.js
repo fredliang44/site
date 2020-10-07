@@ -4,7 +4,7 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'fred',
+    title: "Fred's Site",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -26,6 +26,14 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+
+    // https://github.com/nuxt-community/analytics-module#readme
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-140497401-3',
+      },
+    ],
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -36,6 +44,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // https://github.com/nuxt-community/google-optimize-module
+    'nuxt-google-optimize',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

@@ -9,7 +9,6 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js"
-
   },
   "dependencies": {
     "@nuxt/content": "^1.8.1",
@@ -21,6 +20,7 @@
     "gsap": "^3.5.1",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.5",
+    "nuxt-google-optimize": "^0.5.4",
     "scrollmagic": "^2.0.7",
     "three": "^0.121.1",
     "vue-animejs": "^2.1.1"
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/google-analytics": "^2.4.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
