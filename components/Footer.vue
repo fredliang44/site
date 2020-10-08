@@ -11,6 +11,12 @@ export default {
 </script>
 
 <style lang="less">
+.dark-mode {
+  #footer {
+    background-color: black;
+  }
+}
+
 .shadow {
   width: 100%;
   height: 100%;
@@ -33,11 +39,11 @@ export default {
 #footer {
   z-index: -100;
   width: 100%;
-  height: 50vh;
+  height: 80vh;
   background-color: gray;
   overflow: hidden;
   color: inherit;
 
-  background: rgb(19, 19, 19);
+  background: white;
 }
 </style>

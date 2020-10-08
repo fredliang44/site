@@ -5,37 +5,50 @@
 </template>
 
 <script>
-/* eslint-disable */
-import THREE from '@/libs/three/three'
+import {
+  Scene,
+  NearestFilter,
+  TextureLoader,
+  WebGLRenderer,
+  Sprite,
+  SpriteMaterial,
+  PerspectiveCamera,
+} from 'three'
 
 export default {
   data() {
     return {}
   },
   computed: {},
+  mounted() {
+    this.init()
+  },
+  beforeDestroy() {
+    if (this.interval) clearInterval(this.interval)
+  },
   methods: {
     init() {
-      var SCREEN_WIDTH = window.innerWidth
-      var SCREEN_HEIGHT = window.innerHeight
+      const SCREEN_WIDTH = window.innerWidth
+      const SCREEN_HEIGHT = window.innerHeight
 
-      var SEPARATION = 90
-      var AMOUNTX = 50
-      var AMOUNTY = 50
+      const SEPARATION = 90
+      const AMOUNTX = 50
+      const AMOUNTY = 50
 
-      var container
+      let container
 
-      var particles, particle
-      var count
+      let particles, particle
+      let count
 
-      var camera
-      var scene
-      var renderer
+      let camera
+      let scene
+      let renderer
 
-      var mouseX = 0
-      var mouseY = 0
+      let mouseX = 0
+      // let mouseY = 0
 
-      var windowHalfX = window.innerWidth / 2
-      var windowHalfY = window.innerHeight / 2
+      const windowHalfX = window.innerWidth / 2
+      // const windowHalfY = window.innerHeight / 2
       init()
       this.interval = setInterval(loop, 1000 / 60)
 
@@ -44,24 +57,38 @@ export default {
 
         document.getElementById('background').appendChild(container)
 
-        camera = new THREE.Camera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 200, 10000)
+        camera = new PerspectiveCamera(
+          75,
+          SCREEN_WIDTH / SCREEN_HEIGHT,
+          200,
+          10000
+        )
         camera.position.z = 800
-        camera.position.y = 500
+        camera.position.y = 400
         camera.position.x = 600
+        camera.lookAt(0, 0, 0)
+        scene = new Scene()
 
-        scene = new THREE.Scene()
-
-        renderer = new THREE.CanvasRenderer()
+        renderer = new WebGLRenderer({ alpha: true })
         renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT - 100)
 
-        particles = new Array()
+        particles = []
 
-        var i = 0
-        var material = new THREE.ParticleCircleMaterial(0x777777, 1)
+        let i = 0
+        const map = new TextureLoader().load('/img/circle.svg')
+        renderer.setPixelRatio(window.devicePixelRatio)
+        map.minFilter = NearestFilter
+        const maxAnisotropy = renderer.capabilities.getMaxAnisotropy()
+        map.anisotropy = maxAnisotropy
 
-        for (var ix = 0; ix < AMOUNTX; ix++) {
-          for (var iy = 0; iy < AMOUNTY; iy++) {
-            particle = particles[i++] = new THREE.Particle(material)
+        const material = new SpriteMaterial({
+          color: 0x6f6f6f,
+          map,
+        })
+
+        for (let ix = 0; ix < AMOUNTX; ix++) {
+          for (let iy = 0; iy < AMOUNTY; iy++) {
+            particle = particles[i++] = new Sprite(material)
             particle.position.x = ix * SEPARATION - (AMOUNTX * SEPARATION) / 2
             particle.position.z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2
             scene.add(particle)
@@ -75,22 +102,24 @@ export default {
       }
       function onDocumentMouseMove(event) {
         mouseX = -event.clientX - windowHalfX
-        mouseY = event.clientY - windowHalfY
+        // mouseY = event.clientY - windowHalfY
       }
 
       function loop() {
         camera.position.x += (mouseX - camera.position.x + 600) * 0.05
-        var i = 0
+        // camera.position.z += (mouseY - camera.position.Y + 600) * 0.05
+        camera.lookAt(0, 0, 0)
+        let i = 0
 
-        for (var ix = 0; ix < AMOUNTX; ix++) {
-          for (var iy = 0; iy < AMOUNTY; iy++) {
+        for (let ix = 0; ix < AMOUNTX; ix++) {
+          for (let iy = 0; iy < AMOUNTY; iy++) {
             particle = particles[i++]
             particle.position.y =
               Math.sin((ix + count) * 0.3) * 50 +
               Math.sin((iy + count) * 0.5) * 50
             particle.scale.x = particle.scale.y =
-              (Math.sin((ix + count) * 0.3) + 1) * 2 +
-              (Math.sin((iy + count) * 0.5) + 1) * 2
+              (Math.sin((ix + count) * 0.3) + 1.2) * 3 +
+              (Math.sin((iy + count) * 0.5) + 1.2) * 3
           }
         }
 
@@ -99,12 +128,6 @@ export default {
         count += 0.1
       }
     },
-  },
-  mounted() {
-    this.init()
-  },
-  beforeDestroy() {
-    if (this.interval) clearInterval(this.interval)
   },
 }
 </script>

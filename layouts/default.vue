@@ -52,6 +52,11 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
+h1 {
+  font-size: 72px;
+}
+
 h1,
 h2,
 h3,

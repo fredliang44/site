@@ -48,7 +48,7 @@ export default {
 
     .mode-switcher {
       &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.2);
         .icon {
           color: rgba(255, 255, 0, 0.81);
         }
@@ -74,6 +74,7 @@ export default {
     float: right;
     border-radius: 3px;
     transition: 0.3s;
+    cursor: pointer;
     &:hover {
       background-color: rgba(0, 0, 0, 0.1);
       .icon {
@@ -89,8 +90,6 @@ export default {
       fill: currentColor;
       overflow: hidden;
       transition: 0.3s;
-      &:hover {
-      }
     }
   }
   ul {

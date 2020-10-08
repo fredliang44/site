@@ -30,12 +30,12 @@
             </h3>
           </div>
 
-          <div class="wave-cards">
+          <!-- <div class="wave-cards">
             <AcrylicCard title="Demonstrably Scale" />
             <AcrylicCard title="FinTech" />
             <AcrylicCard />
             <AcrylicCard />
-          </div>
+          </div> -->
         </div>
 
         <!-- <div class="filter"></div> -->
@@ -154,6 +154,7 @@ export default {
       margin-top: 48px;
       padding-top: 48px;
       font-weight: normal;
+      margin-bottom: 24px;
 
       .intro .letter {
         display: inline-block;
@@ -214,13 +215,27 @@ export default {
           height: 42%;
         }
       }
-      .new-wave-content {
-        padding: 60px 0 0 0;
 
-        h2 {
-          font-size: 42px;
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+
+        .new-wave-content {
+          // padding: 60px 0 0 0;
+          color: rgba(255, 255, 255, 0.8);
+          h2 {
+            font-size: 42px;
+          }
+
+          h3 {
+            font-size: 24px;
+          }
         }
       }
+
       .filter {
         width: 100%;
         height: 100%;
