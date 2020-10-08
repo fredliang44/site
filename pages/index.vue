@@ -200,7 +200,7 @@ export default {
 
     .new-wave {
       position: relative;
-      height: 800px;
+      height: 100vh;
 
       .wave-cards {
         margin: 48px 0 0 0;

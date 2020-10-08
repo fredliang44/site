@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     init() {
-      const SCREEN_WIDTH = window.innerWidth
-      const SCREEN_HEIGHT = window.innerHeight
+      let SCREEN_WIDTH = window.innerWidth
+      let SCREEN_HEIGHT = window.innerHeight
 
       const SEPARATION = 90
       const AMOUNTX = 50
@@ -99,12 +99,21 @@ export default {
 
         container.appendChild(renderer.domElement)
         document.addEventListener('mousemove', onDocumentMouseMove, false)
+        window.addEventListener('resize', onWindowResize)
       }
       function onDocumentMouseMove(event) {
         mouseX = -event.clientX - windowHalfX
         // mouseY = event.clientY - windowHalfY
       }
+      function onWindowResize() {
+        SCREEN_WIDTH = window.innerWidth
+        SCREEN_HEIGHT = window.innerHeight
 
+        camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT
+        camera.updateProjectionMatrix()
+
+        renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT - 100)
+      }
       function loop() {
         camera.position.x += (mouseX - camera.position.x + 600) * 0.05
         // camera.position.z += (mouseY - camera.position.Y + 600) * 0.05
