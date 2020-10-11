@@ -41,6 +41,8 @@
         <!-- <div class="filter"></div> -->
         <GradientBackground />
       </div>
+
+      <LetApp />
     </div>
 
     <Footer />
@@ -160,6 +162,9 @@ export default {
         display: inline-block;
       }
       .product-text {
+        .letter {
+          display: inline;
+        }
         background: repeating-linear-gradient(
           -45deg,
           red 0%,
