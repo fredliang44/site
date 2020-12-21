@@ -57,6 +57,10 @@ h1 {
   font-size: 72px;
 }
 
+a {
+  color: grey;
+}
+
 h1,
 h2,
 h3,

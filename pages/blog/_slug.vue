@@ -4,6 +4,7 @@
     <div class="blog container">
       <div class="blog-post">
         <article>
+          <h1>{{ article.title }}</h1>
           <nuxt-content :document="article" />
         </article>
       </div>
@@ -20,8 +21,16 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .blog {
   padding-top: 60px;
+}
+
+.container {
+  margin: 0 auto;
+  padding-left: 36px;
+  padding-right: 36px;
+  max-width: 1200px;
+  width: 100%;
 }
 </style>

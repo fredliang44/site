@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js",
-    "deploy":"nuxt generate && cd dist && cloudbase hosting:deploy -e site-3gmg5qf9c3d35845"
+    "deploy": "nuxt generate && cd dist && cloudbase hosting:deploy -e site-3gmg5qf9c3d35845"
   },
   "dependencies": {
     "@nuxt/content": "^1.8.1",
@@ -21,7 +21,7 @@
     "gasp": "^0.0.2",
     "gsap": "^3.5.1",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.14.5",
+    "nuxt": "^2.14.12",
     "scrollmagic": "^2.0.7",
     "vue-animejs": "^2.1.1"
   },
