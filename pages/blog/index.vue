@@ -5,12 +5,36 @@
       <div class="post-list">
         <div v-for="post of posts" :key="post.slug" class="post-item">
           <NuxtLink :to="{ name: 'blog-slug', params: { slug: post.slug } }">
-            <div
-              class="post-preview"
-              :style="'background-image: url(' + post.img + ')'"
-            >
-              <h2 class="title">{{ post.title }}</h2>
-              <p>{{ post.description }}</p>
+            <div class="post-preview">
+              <div class="post-preview-img">
+                <nuxt-image
+                  class="post-preview-img-cover"
+                  :src="post.image"
+                  :alt="post.title"
+                  sizes="300,300:600,600:900"
+                />
+
+                <div class="post-preview-tags">
+                  <div
+                    v-for="tag of post.tags"
+                    :key="tag.index"
+                    class="post-preview-tag"
+                  >
+                    <p>{{ tag }}</p>
+                  </div>
+                </div>
+                <!-- <nuxt-image src="/nuxt-icon.png" /> -->
+                <!-- <nuxt-image src="/icon.png" /> -->
+              </div>
+
+              <div class="post-preview-detail">
+                <h2 class="title">{{ post.title }}</h2>
+                <p class="created-at">
+                  {{ $dateFns.format(post.date) }}
+                </p>
+                <p>{{ post.description }}</p>
+              </div>
+
               <!-- <img class="place-holder" :src="post.img" :alt="post.title" /> -->
             </div>
           </NuxtLink>
@@ -24,9 +48,26 @@ export default {
   async asyncData({ $content, params }) {
     const posts = await $content('blog', params.slug)
       .where({ draft: { $eq: false } })
-      .only(['title', 'description', 'img', 'slug', 'author', 'hidden'])
+      .only([
+        'title',
+        'description',
+        'image',
+        'slug',
+        'tags',
+        'author',
+        'hidden',
+        'date',
+        'createdAt',
+      ])
+      .sortBy('date', 'desc')
       .fetch()
     return { posts }
+  },
+  methods: {
+    async getImgInfo(img) {
+      const info = await this.$axios.get(img + '?x-oss-process=image/info').data
+      return info
+    },
   },
 }
 </script>
@@ -43,30 +84,82 @@ img {
   }
   .post-list {
     display: flex;
+    flex-wrap: wrap;
+    // align-content: space-between;
+    justify-content: space-between;
+    width: 100%;
+
     .post-item {
-      padding: 10px;
-      max-width: 50%;
+      display: inline-block;
+      margin: 20px 0;
+      width: 46%;
+      // min-width: 400px;
       .post-preview {
-        .title {
-          font-size: 60px;
-          font-weight: bold;
-          mix-blend-mode: difference;
-        }
-        p {
-          margin-top: 20px;
-          font-size: 20px;
-          mix-blend-mode: difference;
-          max-width: 70%;
+        .post-preview-img {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-size: cover;
+          padding-top: 72%;
+          .post-preview-img-cover {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+          }
+
+          .post-preview-tags {
+            .post-preview-tag {
+              display: inline-block;
+              margin-right: 10px;
+              font-weight: bold;
+              font-size: 16px;
+              border-radius: 100px;
+              padding: 8px 14px;
+              background-color: rgba(0, 0, 0, 0.3);
+              box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+              backdrop-filter: blur(15px);
+
+              p {
+                color: rgba(255, 255, 255, 0.8);
+              }
+            }
+
+            margin: 10px;
+            margin-bottom: 15px;
+            position: absolute;
+            bottom: 0;
+          }
         }
 
-        padding: 30px;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        margin: 0 auto;
-        &::after {
-          content: '';
-          display: block;
-          padding-bottom: 56%;
+        .post-preview-detail {
+          .title {
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+          }
+
+          .created-at {
+            margin-top: 6px;
+            color: gray;
+          }
+
+          p {
+            margin: 10px 0;
+            font-size: 16px;
+            max-width: 70%;
+            color: rgba(255, 255, 255, 0.9);
+          }
+
+          padding: 20px;
+        }
+
+        border: 1px rgba(255, 255, 255, 0.15) solid;
+        transition: box-shadow 0.2s, transform 0.7s;
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 3px 40px rgba(255, 255, 255, 0.25);
         }
       }
     }

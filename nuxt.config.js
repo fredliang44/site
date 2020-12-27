@@ -1,3 +1,14 @@
+// const createSitemapRoutes = async () => {
+//   const routes = []
+//   const { $content } = require('@nuxt/content')
+//   if (posts === null || posts.length === 0)
+//     posts = await $content('blog').fetch()
+//   for (const post of posts) {
+//     routes.push(`blog/${post.slug}`)
+//   }
+//   return routes
+// }
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -20,6 +31,14 @@ export default {
         // type: 'text/javascript',
         // charset: 'utf-8',
       },
+      { src: '/__/firebase/8.2.1/firebase-app.js', body: true },
+      { src: '/__/firebase/8.2.1/firebase-performance.js', body: true },
+      { src: '/__/firebase/8.2.1/firebase-analytics.js', body: true },
+      { src: '/__/firebase/init.js', body: true },
+      {
+        innerHTML: `var perf = firebase.performance();`,
+        body: true,
+      },
     ],
     __dangerouslyDisableSanitizers: ['script'],
   },
@@ -39,6 +58,16 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    // '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/date-fns',
+      {
+        locales: ['es', 'zh-CN'],
+        defaultLocale: 'en-US',
+        format: 'yyyy-MM-dd',
+      },
+    ],
+
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
 
@@ -63,11 +92,15 @@ export default {
     // https://github.com/nuxt-community/color-mode-module
     '@nuxtjs/color-mode',
 
+    // https://github.com/nuxt/image
+    '@nuxt/image',
+
     // https://github.com/nuxt-community/google-optimize-module#readme
     // 'nuxt-google-optimize',
 
     // // https://github.com/nuxt-community/gtm-module
     // '@nuxtjs/gtm',
+    '@nuxtjs/sitemap',
   ],
 
   // gtm: {
@@ -91,5 +124,36 @@ export default {
 
   colorMode: {
     preference: 'dark',
+  },
+
+  image: {
+    sizes: [320, 420, 768, 1024, 1200],
+    // // Options
+    // ipx: {
+    //   /**
+    //    * Input directory for images
+    //    **/
+    //   dir: '~/assets',
+    //   /**
+    //    * Cache directory for optimized images
+    //    **/
+    //   cacheDir: '~~/node_modules/.cache/nuxt-image',
+    //   /**
+    //    * Enable/Disable cache cleaning cron job
+    //    **/
+    //   clearCache: false,
+    //   /**
+    //    * Modify default behavior of image optimizer
+    //    **/
+    //   sharp: {
+    //     // Here is complete list of available options: https://github.com/lovell/sharp/blob/master/lib/constructor.js#L132
+    //   },
+    // },
+  },
+
+  sitemap: {
+    hostname: 'https://lzb.im',
+    gzip: true,
+    // routes: createSitemapRoutes,
   },
 }
