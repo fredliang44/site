@@ -9,6 +9,43 @@
 //   return routes
 // }
 
+const loadScripts = function () {
+  const scripts = [
+    {
+      innerHTML: `!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
+  analytics.load("c9wPpLe9F1zBULWCQpdeLY2sCG8yiAVq");
+  analytics.page();
+  }}();`,
+      // type: 'text/javascript',
+      // charset: 'utf-8',
+    },
+    {
+      innerHTML: ` (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2173391,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+    },
+  ]
+  if (process.env.NODE_ENV === 'production') {
+    scripts.push(
+      { src: '/__/firebase/8.2.1/firebase-app.js', body: true },
+      { src: '/__/firebase/8.2.1/firebase-performance.js', body: true },
+      { src: '/__/firebase/8.2.1/firebase-analytics.js', body: true },
+      { src: '/__/firebase/init.js', body: true },
+      {
+        innerHTML: `var perf = firebase.performance();`,
+        body: true,
+      }
+    )
+    return scripts
+  }
+  return scripts
+}
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -22,24 +59,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        innerHTML: `!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
-  analytics.load("c9wPpLe9F1zBULWCQpdeLY2sCG8yiAVq");
-  analytics.page();
-  }}();`,
-        // type: 'text/javascript',
-        // charset: 'utf-8',
-      },
-      { src: '/__/firebase/8.2.1/firebase-app.js', body: true },
-      { src: '/__/firebase/8.2.1/firebase-performance.js', body: true },
-      { src: '/__/firebase/8.2.1/firebase-analytics.js', body: true },
-      { src: '/__/firebase/init.js', body: true },
-      {
-        innerHTML: `var perf = firebase.performance();`,
-        body: true,
-      },
-    ],
+    script: loadScripts(),
     __dangerouslyDisableSanitizers: ['script'],
   },
 
@@ -59,6 +79,8 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss',
+
     [
       '@nuxtjs/date-fns',
       {
@@ -112,6 +134,9 @@ export default {
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {
     // liveEdit: false,
+    // markdown: {
+    //   remarkPlugins: ['remark-slug'],
+    // },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

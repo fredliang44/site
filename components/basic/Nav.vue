@@ -69,6 +69,7 @@ export default {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.06);
   z-index: 1;
   .mode-switcher {
     float: right;

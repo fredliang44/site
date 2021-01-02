@@ -13,8 +13,8 @@
       </div>
 
       <div class="container" style="height: 300px">
-        <div class="self-discription">
-          <h3 class="self-discription-text">Currently @ByteDance</h3>
+        <div class="self-description">
+          <h3 class="self-description-text">Currently @ByteDance</h3>
         </div>
       </div>
       <SkillScrollBar />
@@ -61,7 +61,7 @@ export default {
     this.fadIn('.intro-line-1')
     this.fadIn('.intro-line-2')
     this.fadIn('.product-text')
-    this.fadIn('.self-discription-text')
+    this.fadIn('.self-description-text')
     this.$anime
       .timeline({ loop: false, duration: 10 })
       .add({
@@ -92,7 +92,7 @@ export default {
         delay: (el, i) => 30 * i,
       })
       .add({
-        targets: '.self-discription-text .letter',
+        targets: '.self-description-text .letter',
         translateX: [10, 0],
         translateZ: 0,
         opacity: [0, 1],
@@ -192,7 +192,7 @@ export default {
       }
     }
 
-    .self-discription {
+    .self-description {
       padding: 20px 0;
 
       h3 {
@@ -263,5 +263,25 @@ export default {
   padding-right: 36px;
   max-width: 1200px;
   width: 100%;
+}
+
+@media (max-width: 640px) {
+  .main {
+    .content {
+      .title {
+        .intro,
+        .product-text {
+          font-size: 30px;
+        }
+      }
+      .self-description .self-description-text {
+        font-size: 24px;
+      }
+
+      .scroll-bar p {
+        font-size: 24px;
+      }
+    }
+  }
 }
 </style>

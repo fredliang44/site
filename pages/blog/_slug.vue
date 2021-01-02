@@ -3,23 +3,21 @@
     <Nav />
     <div class="blog container">
       <div class="toc">
-        <ul>
+        <!-- <ul>
           <li
-            v-for="link of article.toc"
+            v-for="link of post.toc"
             :key="link.id"
             :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
           >
-            <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
+            <a :href="'#' + link.id">{{ link.text }}</a>
           </li>
-        </ul>
+        </ul> -->
       </div>
       <div class="blog-post">
-        <article>
-          <h1>{{ article.title }}</h1>
-          <nuxt-content
-            class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
-            :document="article"
-          />
+        <article class="prose prose-sm sm:prose lg:prose-lg mx-auto">
+          <h1 class="post-title">{{ post.title }}</h1>
+          <p class="datetime">{{ $dateFns.format(post.date) }}</p>
+          <nuxt-content :document="post" />
         </article>
       </div>
     </div>
@@ -28,18 +26,64 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const article = await $content('blog', params.slug).fetch()
+    const post = await $content('blog', params.slug).fetch()
 
-    return { article }
+    return { post }
   },
 }
 </script>
 
 <style lang="less">
+.dark-mode {
+  p,
+  tr,
+  td,
+  ul,
+  li,
+  strong {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  blockquote {
+    border-left-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .blog-post {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
 .blog {
   h1 {
     font-size: 32px;
     font-weight: bold;
+  }
+
+  .blog-post {
+    a {
+      text-decoration: underline;
+    }
+
+    blockquote {
+      color: #4a5568;
+    }
+  }
+}
+article {
+  margin-top: 40px;
+
+  .post-title {
+    margin: 0;
+  }
+  .datetime {
+    margin: 0;
+    opacity: 0.6;
   }
 }
 

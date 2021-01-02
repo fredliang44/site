@@ -27,7 +27,11 @@ export default {
   h4,
   h5,
   a,
-  p {
+  p,
+  tr,
+  td,
+  ul,
+  li {
     color: white;
   }
 

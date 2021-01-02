@@ -77,6 +77,27 @@ img {
   width: 100%;
 }
 
+.dark-mode {
+  .blog {
+    .post-preview-tags {
+      .post-preview-tag {
+        p {
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+    .post-preview-detail {
+      .title {
+        color: white;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
+}
+
 .blog {
   padding-top: 60px;
   a {
@@ -92,7 +113,7 @@ img {
     .post-item {
       display: inline-block;
       margin: 20px 0;
-      width: 46%;
+      width: 48%;
       // min-width: 400px;
       .post-preview {
         .post-preview-img {
@@ -111,6 +132,7 @@ img {
 
           .post-preview-tags {
             .post-preview-tag {
+              color: rgba(255, 255, 255, 0.9);
               display: inline-block;
               margin-right: 10px;
               font-weight: bold;
@@ -120,10 +142,6 @@ img {
               background-color: rgba(0, 0, 0, 0.3);
               box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
               backdrop-filter: blur(15px);
-
-              p {
-                color: rgba(255, 255, 255, 0.8);
-              }
             }
 
             margin: 10px;
@@ -137,7 +155,6 @@ img {
           .title {
             font-size: 26px;
             font-weight: bold;
-            color: white;
           }
 
           .created-at {
@@ -149,7 +166,6 @@ img {
             margin: 10px 0;
             font-size: 16px;
             max-width: 70%;
-            color: rgba(255, 255, 255, 0.9);
           }
 
           padding: 20px;
@@ -172,5 +188,13 @@ img {
   padding-right: 36px;
   max-width: 1200px;
   width: 100%;
+}
+
+@media (max-width: 640px) {
+  .post-list {
+    .post-item {
+      min-width: 100%;
+    }
+  }
 }
 </style>
