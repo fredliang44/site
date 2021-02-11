@@ -22,7 +22,7 @@
     "animejs": "^3.2.0",
     "core-js": "^3.6.5",
     "gasp": "^0.0.2",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "normalize.css": "^8.0.1",
     "remark-slug": "^6.0.0",
     "scrollmagic": "^2.0.7",
