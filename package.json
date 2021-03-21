@@ -14,6 +14,7 @@
   "dependencies": {
     "@nuxt/content": "^1.8.1",
     "@nuxtjs/axios": "^5.12.4",
+    "@nuxtjs/firebase": "^7.5.0",
     "@nuxtjs/gtm": "^2.3.2",
     "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/sitemap": "^2.4.0",
@@ -21,6 +22,7 @@
     "@tailwindcss/typography": "^0.3.1",
     "animejs": "^3.2.0",
     "core-js": "^3.6.5",
+    "firebase": "^8.3.1",
     "gasp": "^0.0.2",
     "gsap": "^3.6.0",
     "normalize.css": "^8.0.1",

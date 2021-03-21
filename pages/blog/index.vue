@@ -9,9 +9,10 @@
               <div class="post-preview-img">
                 <nuxt-image
                   class="post-preview-img-cover"
+                  fit="cover"
                   :src="post.image"
                   :alt="post.title"
-                  sizes="300,300:600,600:900"
+                  quality="80"
                 />
 
                 <div class="post-preview-tags">

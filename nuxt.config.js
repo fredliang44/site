@@ -12,14 +12,6 @@
 const loadScripts = function () {
   const scripts = [
     {
-      innerHTML: `!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
-  analytics.load("c9wPpLe9F1zBULWCQpdeLY2sCG8yiAVq");
-  analytics.page();
-  }}();`,
-      // type: 'text/javascript',
-      // charset: 'utf-8',
-    },
-    {
       innerHTML: ` (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:2173391,hjsv:6};
@@ -30,19 +22,6 @@ const loadScripts = function () {
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
     },
   ]
-  if (process.env.NODE_ENV === 'production') {
-    scripts.push(
-      { src: '/__/firebase/8.2.1/firebase-app.js', body: true },
-      { src: '/__/firebase/8.2.1/firebase-performance.js', body: true },
-      { src: '/__/firebase/8.2.1/firebase-analytics.js', body: true },
-      { src: '/__/firebase/init.js', body: true },
-      {
-        innerHTML: `var perf = firebase.performance();`,
-        body: true,
-      }
-    )
-    return scripts
-  }
   return scripts
 }
 
@@ -81,6 +60,9 @@ export default {
     // '@nuxtjs/tailwindcss',
     '@nuxtjs/tailwindcss',
 
+    // https://github.com/nuxt/image
+    '@nuxt/image',
+    
     [
       '@nuxtjs/date-fns',
       {
@@ -114,12 +96,30 @@ export default {
     // https://github.com/nuxt-community/color-mode-module
     '@nuxtjs/color-mode',
 
-    // https://github.com/nuxt/image
-    '@nuxt/image',
-
     // https://github.com/nuxt-community/google-optimize-module#readme
     // 'nuxt-google-optimize',
 
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyBCeS_fPO_Zk1i7p_2Xw9abQFAFAGymXFk",
+          authDomain: "project-lzb.firebaseapp.com",
+          databaseURL: "https://project-lzb.firebaseio.com",
+          projectId: "project-lzb",
+          storageBucket: "project-lzb.appspot.com",
+          messagingSenderId: "1069087358410",
+          appId: "1:1069087358410:web:9d5262fe2e308af43d6333",
+          measurementId: "G-4JVGVRE2ZP"
+        },
+        services: {
+          analytics: {
+            collectionEnabled: true // default
+          },
+          performance: true
+        }
+      }
+    ],
     // // https://github.com/nuxt-community/gtm-module
     // '@nuxtjs/gtm',
     '@nuxtjs/sitemap',
@@ -152,7 +152,15 @@ export default {
   },
 
   image: {
-    sizes: [320, 420, 768, 1024, 1200],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536
+    },
     // // Options
     // ipx: {
     //   /**
