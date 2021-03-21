@@ -86,6 +86,7 @@ h6 {
     url('~assets/font/ProductSans-Bold.svg#ProductSans-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -100,5 +101,6 @@ h6 {
       format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 </style>
