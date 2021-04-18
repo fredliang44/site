@@ -139,7 +139,7 @@ img {
               font-size: 16px;
               border-radius: 100px;
               padding: 8px 14px;
-              background-color: rgba(0, 0, 0, 0.3);
+              background-color: rgba(78, 78, 78, 0.3);
               box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
               backdrop-filter: blur(15px);
             }
