@@ -17,7 +17,9 @@ export default {
 </script>
 <style lang="less">
 .app {
-  font-family: Product Sans, Arial, Helvetica, sans-serif;
+  font-family: Product Sans, 'SF Pro SC', 'HanHei SC', 'SF Pro Text',
+    'Myriad Set Pro', 'SF Pro Icons', 'PingFang SC', 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .dark-mode {

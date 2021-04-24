@@ -1,6 +1,5 @@
 <template>
-  <div class="page">
-    <Nav />
+  <Body>
     <div class="blog container">
       <div class="toc">
         <!-- <ul>
@@ -21,12 +20,12 @@
         </article>
       </div>
     </div>
-  </div>
+  </Body>
 </template>
 <script>
 export default {
-  async asyncData({ $content, params }) {
-    const post = await $content('blog', params.slug).fetch()
+  async asyncData({ $content, params, i18n }) {
+    const post = await $content('blog/' + i18n.locale, params.slug).fetch()
 
     return { post }
   },

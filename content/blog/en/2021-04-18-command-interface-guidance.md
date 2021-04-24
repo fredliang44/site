@@ -1,8 +1,8 @@
 ---
-title: '[WIP] CLI Design Guidelance'
+title: '[WIP] CLI Design Guidance'
 date: 2021-04-18T18:02:04+08:00
 description: 'Design principals in let.sh commnad line interface'
-draft: false
+draft: true
 tags: ['Command Line', 'Design']
 image: '/img/line-unsplash.jpg'
 ---

@@ -1,24 +1,24 @@
 ---
-title: "关于未来的一点想法"
+title: '关于未来的一点想法'
 date: 2019-09-10T00:41:57+08:00
 draft: false
-description: "一点回顾，一点感慨，一点思考。一点想法，一点念头"
-tags: ["Product Manager","My Life","Share"]
-image: "/img/eberhard.jpg"
+description: '一点回顾，一点感慨，一点思考。一点想法，一点念头'
+tags: ['Product Manager', 'My Life', 'Share']
+image: '/img/eberhard.jpg'
 ---
-
-## Dont let job title determine what you do
 
 ![Dont let job title determine the type of design you do
 ](https://storage.fredliang.cn/web/ECAwSgSW4AAqsYp.jpg)
+
+## Dont let job title determine what you do
 
 这个 title 来自于阿姆斯特丹设计大会 Anton & Irene 的联合创始人的分享。
 我希望表达的是，每个人的就业观没必要特别狭隘，因为实际上你往往没有这么被动。
 
 关于做东西 or 学习的范围，有两种说法:
 
-* 一个是不要给自己设定边界
-* 一个是从上往下思考
+- 一个是不要给自己设定边界
+- 一个是从上往下思考
 
 “不要设定边界”其实还是在同温层的总结，只是按照“不设定边界做”是不现实的。而从上往下思考，知道什么该做，什么不该做。在这种背景下，不设定边界，直接去做该做的，为上上策。
 
@@ -47,9 +47,9 @@ image: "/img/eberhard.jpg"
 
 我很喜欢现在所处的圈子：
 
-* 敏捷
-* 专业
-* 平等
+- 敏捷
+- 专业
+- 平等
 
 以上是最先想到的几个点，具体解读其实就有点千人千面了，就不赘述了。
 

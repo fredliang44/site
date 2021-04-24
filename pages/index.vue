@@ -1,51 +1,48 @@
 <template>
   <div class="main">
-    <div class="header">
-      <Nav />
-    </div>
-    <div class="content">
-      <div class="container">
-        <div class="title">
-          <h1 class="intro intro-line-1">Hi, I'm Fred Liang</h1>
-          <h1 class="intro intro-line-2" style="display: inline">I Build</h1>
-          <h1 class="product-text" style="display: inline">Product</h1>
-        </div>
-      </div>
-
-      <div class="container" style="height: 300px">
-        <div class="self-description">
-          <h3 class="self-description-text">Currently @ByteDance</h3>
-        </div>
-      </div>
-      <SkillScrollBar />
-      <Background />
-      <div class="place-holder" style="height: 200px"></div>
-
-      <div class="new-wave">
+    <Body>
+      <div class="content">
         <div class="container">
-          <div class="new-wave-content">
-            <h2>Working inside the new wave of infrastructure revolution</h2>
-            <h3>
-              SaaS products supercharge the growth of companys in the new era
-            </h3>
+          <div class="title">
+            <h1 class="intro intro-line-1">Hi, I'm Fred Liang</h1>
+            <h1 class="intro intro-line-2" style="display: inline">I Build</h1>
+            <h1 class="product-text" style="display: inline">Product</h1>
           </div>
+        </div>
 
-          <!-- <div class="wave-cards">
+        <div class="container" style="height: 300px">
+          <div class="self-description">
+            <h3 class="self-description-text">Currently @ByteDance</h3>
+          </div>
+        </div>
+        <SkillScrollBar />
+        <Background />
+        <div class="place-holder" style="height: 200px"></div>
+
+        <div class="new-wave">
+          <div class="container">
+            <div class="new-wave-content">
+              <h2>Working inside the new wave of infrastructure revolution</h2>
+              <h3>
+                SaaS products supercharge the growth of companys in the new era
+              </h3>
+            </div>
+
+            <!-- <div class="wave-cards">
             <AcrylicCard title="Demonstrably Scale" />
             <AcrylicCard title="FinTech" />
             <AcrylicCard />
             <AcrylicCard />
           </div> -->
+          </div>
+
+          <!-- <div class="filter"></div> -->
+          <GradientBackground />
         </div>
 
-        <!-- <div class="filter"></div> -->
-        <GradientBackground />
+        <LetApp />
       </div>
-
-      <LetApp />
-    </div>
-
-    <Footer />
+    </Body>
   </div>
 </template>
 

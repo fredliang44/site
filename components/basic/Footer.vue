@@ -1,6 +1,68 @@
 <template>
   <div id="footer">
-    <div class="shadow"></div>
+    <!-- <div class="shadow"></div> -->
+    <div class="footer_info">
+      <p class="author">
+        <a href="https://www.yuque.com/fredliang/refine">Designed</a> &amp;
+        <a href="https://github.com/fredliang44/hugo-theme-refine">Coded</a>
+        With ❤️ by <a href="https://www.fredliang.cn">Fred Liang</a>
+      </p>
+      <p class="powered_by">
+        Powered By
+        <a
+          rel="noreferrer noopener"
+          href="https://alpha.let.sh.cn"
+          title="powerby"
+          target="_blank"
+          >let.sh</a
+        >
+      </p>
+      <div class="my_socials">
+        <a
+          rel="noreferrer noopener"
+          href="https://www.facebook.com/profile.php?id=100015539800123"
+          title="facebook"
+          target="_blank"
+          ><i class="remixicon-facebook-fill"></i></a
+        ><a
+          rel="noreferrer noopener"
+          href="https://www.github.com/fredliang44"
+          title="github"
+          target="_blank"
+          ><i class="remixicon-github-fill"></i></a
+        ><a
+          rel="noreferrer noopener"
+          href="https://www.linkedin.com/in/liangzhibo/"
+          title="linkedin"
+          target="_blank"
+          ><i class="remixicon-linkedin-fill"></i></a
+        ><a
+          rel="noreferrer noopener"
+          href="https://storage.fredliang.cn/Wechat-QRCode.jpeg"
+          title="wechat"
+          target="_blank"
+          ><i class="remixicon-wechat-fill"></i></a
+        ><a
+          href="https://blog.fredliang.cn/feed.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="remixicon-rss-fill"></i
+        ></a>
+      </div>
+      <p class="beian">
+        <a
+          rel="noreferrer noopener"
+          href="http://www.beian.miit.gov.cn"
+          title="beian"
+          target="_blank"
+          >京ICP备16033945号</a
+        >
+      </p>
+      <div id="notify">
+        <div class="notify_wrapper"><p id="notify_content"></p></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,11 +101,42 @@ export default {
 #footer {
   z-index: -100;
   width: 100%;
-  height: 80vh;
-  background-color: gray;
   overflow: hidden;
   color: inherit;
-
+  clear: both;
+  text-align: center;
+  min-height: 18vh;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
   background: white;
+
+  p {
+    font-family: product sans, google sans, Roboto, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-align: center;
+
+    a {
+      transition-duration: 0.2s;
+      font-family: product sans, google sans, Roboto, Arial, Helvetica,
+        sans-serif;
+      font-weight: 700;
+    }
+  }
+  .footer_info {
+    width: 100%;
+  }
+  .powered_by {
+    font-size: 16px;
+  }
+  .beian a {
+    margin-top: 2px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: noto serif, noto serif cjk tc, source han serif tc, songti tc,
+      serif;
+    letter-spacing: 1px;
+  }
 }
 </style>

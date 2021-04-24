@@ -12,7 +12,7 @@
 const loadScripts = function () {
   const scripts = [
     {
-      innerHTML: ` (function(h,o,t,j,a,r){
+      innerHTML: `(function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:2173391,hjsv:6};
         a=o.getElementsByTagName('head')[0];
@@ -20,6 +20,9 @@ const loadScripts = function () {
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+    },
+    {
+      src: 'https://dev.visualwebsiteoptimizer.com/lib/555341.js',
     },
   ]
   return scripts
@@ -62,7 +65,7 @@ export default {
 
     // https://github.com/nuxt/image
     '@nuxt/image',
-    
+
     [
       '@nuxtjs/date-fns',
       {
@@ -103,26 +106,28 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: "AIzaSyBCeS_fPO_Zk1i7p_2Xw9abQFAFAGymXFk",
-          authDomain: "project-lzb.firebaseapp.com",
-          databaseURL: "https://project-lzb.firebaseio.com",
-          projectId: "project-lzb",
-          storageBucket: "project-lzb.appspot.com",
-          messagingSenderId: "1069087358410",
-          appId: "1:1069087358410:web:9d5262fe2e308af43d6333",
-          measurementId: "G-4JVGVRE2ZP"
+          apiKey: 'AIzaSyBCeS_fPO_Zk1i7p_2Xw9abQFAFAGymXFk',
+          authDomain: 'project-lzb.firebaseapp.com',
+          databaseURL: 'https://project-lzb.firebaseio.com',
+          projectId: 'project-lzb',
+          storageBucket: 'project-lzb.appspot.com',
+          messagingSenderId: '1069087358410',
+          appId: '1:1069087358410:web:9d5262fe2e308af43d6333',
+          measurementId: 'G-4JVGVRE2ZP',
         },
         services: {
           analytics: {
-            collectionEnabled: true // default
+            collectionEnabled: true, // default
           },
-          performance: true
-        }
-      }
+          performance: true,
+        },
+      },
     ],
     // // https://github.com/nuxt-community/gtm-module
     // '@nuxtjs/gtm',
     '@nuxtjs/sitemap',
+
+    'nuxt-i18n',
   ],
 
   // gtm: {
@@ -159,7 +164,7 @@ export default {
       lg: 1024,
       xl: 1280,
       xxl: 1536,
-      '2xl': 1536
+      '2xl': 1536,
     },
     // // Options
     // ipx: {
@@ -188,5 +193,35 @@ export default {
     hostname: 'https://lzb.im',
     gzip: true,
     // routes: createSitemapRoutes,
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US', // Will be used as catchall locale by default
+      },
+      {
+        code: 'zh',
+        iso: 'zh-CN',
+      },
+    ],
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          home: 'Home',
+          blog: 'Blog',
+          about: 'About',
+        },
+        zh: {
+          home: '主页',
+          blog: '文章',
+          about: '关于',
+        },
+      },
+    },
   },
 }

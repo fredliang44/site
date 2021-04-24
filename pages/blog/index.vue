@@ -1,10 +1,13 @@
 <template>
-  <div class="page">
-    <Nav />
+  <Body>
     <div class="blog container">
       <div class="post-list">
         <div v-for="post of posts" :key="post.slug" class="post-item">
-          <NuxtLink :to="{ name: 'blog-slug', params: { slug: post.slug } }">
+          <NuxtLink
+            :to="
+              localeRoute({ name: 'blog-slug', params: { slug: post.slug } })
+            "
+          >
             <div class="post-preview">
               <div class="post-preview-img">
                 <nuxt-image
@@ -42,27 +45,45 @@
         </div>
       </div>
     </div>
-  </div>
+  </Body>
 </template>
 <script>
 export default {
-  async asyncData({ $content, params }) {
-    const posts = await $content('blog', params.slug)
-      .where({ draft: { $eq: false } })
-      .only([
-        'title',
-        'description',
-        'image',
-        'slug',
-        'tags',
-        'author',
-        'hidden',
-        'date',
-        'createdAt',
-      ])
-      .sortBy('date', 'desc')
-      .fetch()
-    return { posts }
+  async asyncData({ $content, params, i18n }) {
+    if (process.env.NODE_ENV === 'production') {
+      const posts = await $content('blog/' + i18n.locale, params.slug)
+        .where({ draft: { $eq: false } })
+        .only([
+          'title',
+          'description',
+          'image',
+          'slug',
+          'tags',
+          'author',
+          'hidden',
+          'date',
+          'createdAt',
+        ])
+        .sortBy('date', 'desc')
+        .fetch()
+      return { posts }
+    } else {
+      const posts = await $content('blog/' + i18n.locale, params.slug)
+        .only([
+          'title',
+          'description',
+          'image',
+          'slug',
+          'tags',
+          'author',
+          'hidden',
+          'date',
+          'createdAt',
+        ])
+        .sortBy('date', 'desc')
+        .fetch()
+      return { posts }
+    }
   },
   methods: {
     async getImgInfo(img) {
@@ -79,7 +100,8 @@ img {
 }
 
 .dark-mode {
-  .blog {
+  .blog .post-list .post-item .post-preview {
+    border: 1px rgba(255, 255, 255, 0.15) solid;
     .post-preview-tags {
       .post-preview-tag {
         p {
@@ -117,6 +139,8 @@ img {
       width: 48%;
       // min-width: 400px;
       .post-preview {
+        border: 1px rgba(0, 0, 0, 0.15) solid;
+        transition: box-shadow 0.2s, transform 0.7s;
         .post-preview-img {
           position: relative;
           width: 100%;
@@ -153,6 +177,7 @@ img {
         }
 
         .post-preview-detail {
+          color: black;
           .title {
             font-size: 26px;
             font-weight: bold;
@@ -166,14 +191,12 @@ img {
           p {
             margin: 10px 0;
             font-size: 16px;
-            max-width: 70%;
+            // max-width: 70%;
           }
 
           padding: 20px;
         }
 
-        border: 1px rgba(255, 255, 255, 0.15) solid;
-        transition: box-shadow 0.2s, transform 0.7s;
         &:hover {
           transform: translateY(-2px);
           box-shadow: 0 3px 40px rgba(255, 255, 255, 0.25);

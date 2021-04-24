@@ -3,28 +3,41 @@
     <div class="container" style="">
       <ul>
         <li>
-          <nuxt-link to="/">Home</nuxt-link>
+          <nuxt-link :to="localePath('/')">{{ $t('home') }}</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/blog">Blog</nuxt-link>
+          <nuxt-link :to="localePath('/blog')">{{ $t('blog') }}</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/about">About</nuxt-link>
+          <nuxt-link :to="localePath('/about')">{{ $t('about') }}</nuxt-link>
         </li>
       </ul>
-      <div class="mode-switcher" @click="switchMode">
+
+      <div class="mode-switcher switcher" @click="switchMode">
         <svg class="icon" aria-hidden="true">
           <use v-if="$colorMode.value === 'light'" xlink:href="#icon-sun"></use>
           <use v-if="$colorMode.value === 'dark'" xlink:href="#icon-moon"></use>
         </svg>
       </div>
+      <nuxt-link
+        class="lang-switcher switcher"
+        :to="locale == 'en' ? switchLocalePath('zh') : switchLocalePath('en')"
+      >
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-in"></use>
+        </svg>
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {},
+  computed: {
+    locale() {
+      return this.$i18n.locale
+    },
+  },
   methods: {
     switchMode() {
       if (this.$colorMode.value === 'dark') {
@@ -33,6 +46,7 @@ export default {
         this.$colorMode.preference = 'dark'
       }
     },
+    switchLang() {},
   },
 }
 </script>
@@ -41,20 +55,28 @@ export default {
 .dark-mode {
   .nav {
     background-color: rgba(27, 27, 27, 0.5) !important;
-    border-bottom: solid 1px rgba(162, 162, 162, 0.2);
+    border-bottom: solid 1px rgba(162, 162, 162, 0.1);
     ul > li > a {
       color: white;
     }
 
-    .mode-switcher {
+    .switcher {
       &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        .icon {
-          color: rgba(255, 255, 0, 0.81);
-        }
+        background-color: rgba(255, 255, 255, 0.1);
       }
       .icon {
         color: white;
+      }
+    }
+    .lang-switcher {
+      &:hover .icon {
+        color: #008cff;
+      }
+    }
+
+    .mode-switcher {
+      &:hover.icon {
+        color: rgba(255, 255, 0, 0.81);
       }
     }
   }
@@ -66,21 +88,28 @@ export default {
   align-items: center;
   text-align: left;
   height: 48px;
+  top: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   border-bottom: solid 1px rgba(0, 0, 0, 0.06);
   z-index: 1;
-  .mode-switcher {
+
+  .lang-switcher {
+    &:hover .icon {
+      color: #008cff;
+    }
+  }
+
+  .switcher {
     float: right;
     border-radius: 3px;
     transition: 0.3s;
     cursor: pointer;
+    margin-left: 6px;
+
     &:hover {
       background-color: rgba(0, 0, 0, 0.1);
-      .icon {
-        color: #ff9a00;
-      }
     }
     .icon {
       color: black;
@@ -91,6 +120,11 @@ export default {
       fill: currentColor;
       overflow: hidden;
       transition: 0.3s;
+    }
+  }
+  .mode-switcher {
+    &:hover .icon {
+      color: #ff9a00;
     }
   }
   ul {
