@@ -5,6 +5,65 @@
         <div class="container" style="">
           <client-only>
             <article class="prose prose-sm sm:prose lg:prose-lg mx-auto">
+              <bubble-menu
+                v-if="editor"
+                class="bubble-menu"
+                :tippy-options="{ duration: 100 }"
+                :editor="editor"
+              >
+                <button
+                  :class="{ 'is-active': editor.isActive('bold') }"
+                  @click="editor.chain().focus().toggleBold().run()"
+                >
+                  Bold
+                </button>
+                <button
+                  :class="{ 'is-active': editor.isActive('italic') }"
+                  @click="editor.chain().focus().toggleItalic().run()"
+                >
+                  Italic
+                </button>
+                <button
+                  :class="{ 'is-active': editor.isActive('strike') }"
+                  @click="editor.chain().focus().toggleStrike().run()"
+                >
+                  Strike
+                </button>
+              </bubble-menu>
+
+              <floating-menu
+                v-if="editor"
+                class="floating-menu"
+                :tippy-options="{ duration: 100 }"
+                :editor="editor"
+              >
+                <button
+                  :class="{
+                    'is-active': editor.isActive('heading', { level: 1 }),
+                  }"
+                  @click="
+                    editor.chain().focus().toggleHeading({ level: 1 }).run()
+                  "
+                >
+                  H1
+                </button>
+                <button
+                  :class="{
+                    'is-active': editor.isActive('heading', { level: 2 }),
+                  }"
+                  @click="
+                    editor.chain().focus().toggleHeading({ level: 2 }).run()
+                  "
+                >
+                  H2
+                </button>
+                <button
+                  :class="{ 'is-active': editor.isActive('bulletList') }"
+                  @click="editor.chain().focus().toggleBulletList().run()"
+                >
+                  Bullet List
+                </button>
+              </floating-menu>
               <editor-content :editor="editor" />
             </article>
           </client-only>
@@ -15,7 +74,7 @@
 </template>
 
 <script>
-import { Editor, EditorContent } from '@tiptap/vue-2'
+import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
 import { defaultExtensions } from '@tiptap/starter-kit'
 import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
@@ -30,6 +89,8 @@ import { WebsocketProvider } from 'y-websocket'
 export default {
   components: {
     EditorContent,
+    BubbleMenu,
+    FloatingMenu,
   },
 
   data() {
@@ -45,7 +106,7 @@ export default {
 
     // eslint-disable-next-line no-unused-vars
     const Provider = new WebsocketProvider(
-      'wss://comment.fredliang.cn',
+      'wss://	dyn-doc.fredliang.cn',
       // 'ws://168.63.219.123:11234',
       'about-comment',
       ydoc
@@ -83,6 +144,20 @@ export default {
 </script>
 
 <style lang="less">
+.dark-mode {
+  .bubble-menu {
+    background-color: rgba(255, 255, 255, 0.2);
+
+    button {
+      color: #fff;
+    }
+  }
+
+  .floating-menu {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
 .about {
   padding-top: 40px;
 }
@@ -146,5 +221,48 @@ export default {
   padding: 0.1rem 0.3rem;
   border-radius: 3px 3px 3px 0;
   white-space: nowrap;
+}
+
+.bubble-menu {
+  display: flex;
+  background-color: #0d0d0d;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+
+  button {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0 0.2rem;
+    opacity: 0.6;
+
+    &:hover,
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}
+
+.floating-menu {
+  display: flex;
+  background-color: #0d0d0d10;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+
+  button {
+    border: none;
+    background: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0 0.2rem;
+    opacity: 0.6;
+
+    &:hover,
+    &.is-active {
+      opacity: 1;
+    }
+  }
 }
 </style>
