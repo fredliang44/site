@@ -60,7 +60,7 @@ Thankfully the top internet or social media companies have the "right" values, b
 
 ## God Mode
 
-This one is after seeing a [document from Taiwan](https://news.agentm.tw/59235/%E9%BB%91%E9%8F%A1-%E7%AC%AC%E4%BA%94%E5%AD%A3-%E7%A2%8E%E7%89%87-smithereens-%E8%A7% A3%E6%9E%90/) and thought it was an appropriate title to "take", when you have domain-wide data access, it feels like you are typing a cheat codes in GTA. You can get all the data of a user, such as travel records, hotel reservation records, taxi records, etc. Having been "lucky" enough to get similar access after signing a confidentiality clause, it's hard to forget the first time you were surprised at the sheer size of the user's behavior when you looked up the data.
+This one is after seeing a [document from Taiwan](https://news.agentm.tw/59235/%E9%BB%91%E9%8F%A1-%E7%AC%AC%E4%BA%94%E5%AD%A3-%E7%A2%8E%E7%89%87-smithereens-%E8%A7%A3%E6%9E%90/) and thought it was an appropriate title to "take", when you have domain-wide data access, it feels like you are typing a cheat codes in GTA. You can get all the data of a user, such as travel records, hotel reservation records, taxi records, etc. Having been "lucky" enough to get similar access after signing a confidentiality clause, it's hard to forget the first time you were surprised at the sheer size of the user's behavior when you looked up the data.
 
 Especially since online advertising has opened up cross-platform data, user IDs can be converted directly between different APPs and companies, and user data can be opened up as well. If the data is completely shared, the corresponding user profiles can be incredibly detailed.
 

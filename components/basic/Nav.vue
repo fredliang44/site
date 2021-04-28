@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .dark-mode {
   .nav {
     background-color: rgba(27, 27, 27, 0.5) !important;

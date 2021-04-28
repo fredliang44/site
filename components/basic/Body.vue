@@ -5,20 +5,23 @@
         <Nav />
       </div>
 
-      <slot></slot>
+      <div class="page-slot">
+        <slot></slot>
+      </div>
     </div>
     <Footer />
   </div>
 </template>
 
 <style>
-.header {
-}
-
 .page-content {
   min-height: 82vh;
 }
 .page {
   min-height: 100vh;
+}
+
+.page-slot {
+  margin-top: 48px;
 }
 </style>

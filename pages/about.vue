@@ -106,7 +106,7 @@ export default {
 
     // eslint-disable-next-line no-unused-vars
     const Provider = new WebsocketProvider(
-      'wss://	dyn-doc.fredliang.cn',
+      'wss://dyn-doc.fredliang.cn',
       // 'ws://168.63.219.123:11234',
       'about-comment',
       ydoc
@@ -145,6 +145,9 @@ export default {
 
 <style lang="less">
 .dark-mode {
+  strong {
+    color: white;
+  }
   .bubble-menu {
     background-color: rgba(255, 255, 255, 0.2);
 
@@ -159,7 +162,7 @@ export default {
   }
 }
 .about {
-  padding-top: 40px;
+  padding-top: 1px;
 }
 
 /* Basic editor styles */
@@ -176,8 +179,6 @@ export default {
 }
 
 .content {
-  padding: 1rem 0 0;
-
   h3 {
     margin: 1rem 0 0.5rem;
   }

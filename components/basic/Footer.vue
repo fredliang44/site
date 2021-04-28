@@ -11,7 +11,7 @@
         Powered By
         <a
           rel="noreferrer noopener"
-          href="https://alpha.let.sh.cn"
+          href="https://alpha.let.sh"
           title="powerby"
           target="_blank"
           >let.sh</a

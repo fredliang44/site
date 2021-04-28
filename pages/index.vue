@@ -254,13 +254,6 @@ export default {
     }
   }
 }
-.container {
-  margin: 0 auto;
-  padding-left: 36px;
-  padding-right: 36px;
-  max-width: 1200px;
-  width: 100%;
-}
 
 @media (max-width: 640px) {
   .main {

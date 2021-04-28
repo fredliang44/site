@@ -22,6 +22,14 @@ export default {
     'Helvetica', 'Arial', sans-serif;
 }
 
+.container {
+  margin: 0 auto;
+  padding-left: 36px;
+  padding-right: 36px;
+  max-width: 1200px;
+  width: 100%;
+}
+
 .dark-mode {
   h1,
   h2,

@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js",
-    "deploy": "nuxt generate && firebase deploy"
+    "deploy": "lets deploy --prod"
   },
   "dependencies": {
     "@nuxt/content": "^1.8.1",

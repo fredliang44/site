@@ -91,7 +91,7 @@ img {
 }
 
 .blog {
-  padding-top: 60px;
+  padding-top: 20px;
 }
 
 .container {
