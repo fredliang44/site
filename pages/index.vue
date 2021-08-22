@@ -15,7 +15,7 @@
             <h3 class="self-description-text">Currently @ByteDance</h3>
           </div>
         </div>
-        <SkillScrollBar />
+        <HomeSkillScrollBar />
         <Background />
         <div class="place-holder" style="height: 200px"></div>
 
@@ -40,7 +40,7 @@
           <GradientBackground />
         </div>
 
-        <LetApp />
+        <ModuleLetApp />
       </div>
     </Body>
   </div>
