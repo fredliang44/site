@@ -42,6 +42,7 @@
 
         <ModuleLetApp />
       </div>
+      <WidgetSpotify />
     </Body>
   </div>
 </template>

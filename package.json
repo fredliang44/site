@@ -25,10 +25,12 @@
     "@tiptap/extension-collaboration": "^2.0.0-beta.10",
     "@tiptap/extension-collaboration-cursor": "^2.0.0-beta.12",
     "@tiptap/extension-highlight": "^2.0.0-beta.6",
+    "@tiptap/extension-link": "^2.0.0-beta.19",
     "@tiptap/extension-text": "^2.0.0-beta.5",
     "@tiptap/extension-typography": "^2.0.0-beta.5",
     "@tiptap/starter-kit": "^2.0.0-beta.34",
-    "@tiptap/vue-2": "^2.0.0-beta.21",
+    "@tiptap/vue-2": "^2.0.0-beta.47",
+    "@tiptap/vue-3": "^2.0.0-beta.53",
     "animejs": "^3.2.0",
     "core-js": "^3.6.5",
     "firebase": "^8.3.1",
@@ -58,7 +60,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.15.8",
     "prettier": "^2.1.1",
     "three": "^0.125.0"
   }

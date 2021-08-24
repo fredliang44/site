@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+    <WidgetSpotify />
   </Body>
 </template>
 <script>
@@ -101,7 +102,7 @@ img {
 
 .dark-mode {
   .blog .post-list .post-item .post-preview {
-    border: 1px rgba(255, 255, 255, 0.15) solid;
+    border: 1px rgba(255, 255, 255, 0.1) solid;
     .post-preview-tags {
       .post-preview-tag {
         p {
@@ -136,12 +137,18 @@ img {
     .post-item {
       display: inline-block;
       margin: 20px 0;
+      // overflow: hidden;
       width: 48%;
       // min-width: 400px;
       .post-preview {
+        border-radius: 20px;
         border: 1px rgba(0, 0, 0, 0.15) solid;
         transition: box-shadow 0.2s, transform 0.7s;
         .post-preview-img {
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          z-index: -10;
+          overflow: hidden;
           position: relative;
           width: 100%;
           height: 100%;

@@ -69,6 +69,7 @@
           </client-only>
         </div>
       </div>
+      <WidgetSpotify />
     </Body>
   </div>
 </template>
@@ -76,16 +77,17 @@
 <script>
 import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
 // import { defaultExtensions } from '@tiptap/starter-kit'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
 import StarterKit from '@tiptap/starter-kit'
-// import Highlight from '@tiptap/extension-highlight'
-// import Typography from '@tiptap/extension-typography'
-// import Code from '@tiptap/extension-code'
+import { Document } from '@tiptap/extension-document'
+import { Paragraph } from '@tiptap/extension-paragraph'
+import { Text } from '@tiptap/extension-text'
+import { Link } from '@tiptap/extension-link'
+import { Highlight } from '@tiptap/extension-highlight'
+import { Typography } from '@tiptap/extension-typography'
+import { Code } from '@tiptap/extension-code'
 
-import Collaboration from '@tiptap/extension-collaboration'
-import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
+import { Collaboration } from '@tiptap/extension-collaboration'
+import { CollaborationCursor } from '@tiptap/extension-collaboration-cursor'
 import * as Y from 'yjs'
 import { WebsocketProvider } from 'y-websocket'
 // import { IndexeddbPersistence } from 'y-indexeddb'
@@ -112,7 +114,7 @@ export default {
     const Provider = new WebsocketProvider(
       'wss://dyn-doc.fredliang.cn',
       // 'ws://168.63.219.123:11234',
-      // 'ws://localhost:1234',
+      // 'ws://localhost:11234',
       'about-comment',
       ydoc
     )
@@ -126,13 +128,14 @@ export default {
       extensions: [
         // …
         // Register the document with tiptap
-        ...StarterKit,
-        // Highlight,
-        // Typography,
+        StarterKit,
+        Highlight,
+        Typography,
         Document,
         Paragraph,
         Text,
-        // Code,
+        Link,
+        Code,
         Collaboration.configure({
           document: ydoc,
         }),
