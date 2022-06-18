@@ -1,49 +1,47 @@
 <template>
   <div class="main">
-    <Body>
-      <div class="content">
+    <div class="content">
+      <div class="container">
+        <div class="text-gray-200 title">
+          <h1 class="intro intro-line-1">Hi, I'm Fred Liang</h1>
+          <h1 class="intro intro-line-2" style="display: inline">I Build</h1>
+          <h1 class="product-text" style="display: inline">Product</h1>
+        </div>
+      </div>
+
+      <div class="container" style="height: 240px">
+        <div class="self-description">
+          <h3 class="self-description-text">Currently @ByteDance</h3>
+        </div>
+      </div>
+      <HomeSkillScrollBar />
+      <Background />
+      <div class="place-holder" style="height: 200px"></div>
+
+      <div class="new-wave">
         <div class="container">
-          <div class="title">
-            <h1 class="intro intro-line-1">Hi, I'm Fred Liang</h1>
-            <h1 class="intro intro-line-2" style="display: inline">I Build</h1>
-            <h1 class="product-text" style="display: inline">Product</h1>
+          <div class="new-wave-content">
+            <h2>Working inside the new wave of infrastructure revolution</h2>
+            <h3>
+              SaaS products supercharge the growth of companys in the new era
+            </h3>
           </div>
-        </div>
 
-        <div class="container" style="height: 300px">
-          <div class="self-description">
-            <h3 class="self-description-text">Currently @ByteDance</h3>
-          </div>
-        </div>
-        <HomeSkillScrollBar />
-        <Background />
-        <div class="place-holder" style="height: 200px"></div>
-
-        <div class="new-wave">
-          <div class="container">
-            <div class="new-wave-content">
-              <h2>Working inside the new wave of infrastructure revolution</h2>
-              <h3>
-                SaaS products supercharge the growth of companys in the new era
-              </h3>
-            </div>
-
-            <!-- <div class="wave-cards">
+          <!-- <div class="wave-cards">
             <AcrylicCard title="Demonstrably Scale" />
             <AcrylicCard title="FinTech" />
             <AcrylicCard />
             <AcrylicCard />
           </div> -->
-          </div>
-
-          <!-- <div class="filter"></div> -->
-          <GradientBackground />
         </div>
 
-        <ModuleLetApp />
+        <!-- <div class="filter"></div> -->
+        <BackgroundGradientBackground />
       </div>
-      <WidgetSpotify />
-    </Body>
+
+      <ModuleLetApp />
+    </div>
+    <WidgetSpotify />
   </div>
 </template>
 
@@ -152,9 +150,9 @@ export default {
     .title {
       font-size: 48px;
       margin-top: 48px;
-      padding-top: 48px;
+      // padding-top: 48px;
       font-weight: normal;
-      margin-bottom: 24px;
+      margin-bottom: 36px;
 
       .intro .letter {
         display: inline-block;

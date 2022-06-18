@@ -1,6 +1,6 @@
 <template>
-  <Body>
-    <div class="blog container">
+  <div>
+    <div class="container blog">
       <div class="post-list">
         <div v-for="post of posts" :key="post.slug" class="post-item">
           <NuxtLink
@@ -46,7 +46,7 @@
       </div>
     </div>
     <WidgetSpotify />
-  </Body>
+  </div>
 </template>
 <script>
 export default {
@@ -147,7 +147,7 @@ img {
         .post-preview-img {
           border-top-left-radius: 20px;
           border-top-right-radius: 20px;
-          z-index: -10;
+          // z-index: -10;
           overflow: hidden;
           position: relative;
           width: 100%;

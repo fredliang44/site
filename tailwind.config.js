@@ -5,6 +5,16 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  purge: ['./src/**/*.html', './src/**/*.vue', './src/**/*.jsx'],
+  // darkMode: 'class',
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+  ],
+  theme: {
+    extend: {},
+  },
   plugins: [require('@tailwindcss/typography')],
 }

@@ -1,76 +1,74 @@
 <template>
   <div class="about-page">
-    <Body>
-      <div class="about">
-        <div class="container" style="">
-          <client-only>
-            <article class="prose prose-sm sm:prose lg:prose-lg mx-auto">
-              <bubble-menu
-                v-if="editor"
-                class="bubble-menu"
-                :tippy-options="{ duration: 100 }"
-                :editor="editor"
+    <div class="about">
+      <div class="container" style="">
+        <client-only>
+          <article class="mx-auto prose-sm prose sm:prose lg:prose-lg">
+            <bubble-menu
+              v-if="editor"
+              class="bubble-menu"
+              :tippy-options="{ duration: 100 }"
+              :editor="editor"
+            >
+              <button
+                :class="{ 'is-active': editor.isActive('bold') }"
+                @click="editor.chain().focus().toggleBold().run()"
               >
-                <button
-                  :class="{ 'is-active': editor.isActive('bold') }"
-                  @click="editor.chain().focus().toggleBold().run()"
-                >
-                  Bold
-                </button>
-                <button
-                  :class="{ 'is-active': editor.isActive('italic') }"
-                  @click="editor.chain().focus().toggleItalic().run()"
-                >
-                  Italic
-                </button>
-                <button
-                  :class="{ 'is-active': editor.isActive('strike') }"
-                  @click="editor.chain().focus().toggleStrike().run()"
-                >
-                  Strike
-                </button>
-              </bubble-menu>
+                Bold
+              </button>
+              <button
+                :class="{ 'is-active': editor.isActive('italic') }"
+                @click="editor.chain().focus().toggleItalic().run()"
+              >
+                Italic
+              </button>
+              <button
+                :class="{ 'is-active': editor.isActive('strike') }"
+                @click="editor.chain().focus().toggleStrike().run()"
+              >
+                Strike
+              </button>
+            </bubble-menu>
 
-              <floating-menu
-                v-if="editor"
-                class="floating-menu"
-                :tippy-options="{ duration: 100 }"
-                :editor="editor"
+            <floating-menu
+              v-if="editor"
+              class="floating-menu"
+              :tippy-options="{ duration: 100 }"
+              :editor="editor"
+            >
+              <button
+                :class="{
+                  'is-active': editor.isActive('heading', { level: 1 }),
+                }"
+                @click="
+                  editor.chain().focus().toggleHeading({ level: 1 }).run()
+                "
               >
-                <button
-                  :class="{
-                    'is-active': editor.isActive('heading', { level: 1 }),
-                  }"
-                  @click="
-                    editor.chain().focus().toggleHeading({ level: 1 }).run()
-                  "
-                >
-                  H1
-                </button>
-                <button
-                  :class="{
-                    'is-active': editor.isActive('heading', { level: 2 }),
-                  }"
-                  @click="
-                    editor.chain().focus().toggleHeading({ level: 2 }).run()
-                  "
-                >
-                  H2
-                </button>
-                <button
-                  :class="{ 'is-active': editor.isActive('bulletList') }"
-                  @click="editor.chain().focus().toggleBulletList().run()"
-                >
-                  Bullet List
-                </button>
-              </floating-menu>
-              <editor-content :editor="editor" />
-            </article>
-          </client-only>
-        </div>
+                H1
+              </button>
+              <button
+                :class="{
+                  'is-active': editor.isActive('heading', { level: 2 }),
+                }"
+                @click="
+                  editor.chain().focus().toggleHeading({ level: 2 }).run()
+                "
+              >
+                H2
+              </button>
+              <button
+                :class="{ 'is-active': editor.isActive('bulletList') }"
+                @click="editor.chain().focus().toggleBulletList().run()"
+              >
+                Bullet List
+              </button>
+            </floating-menu>
+            <editor-content :editor="editor" />
+          </article>
+        </client-only>
       </div>
-      <WidgetSpotify />
-    </Body>
+    </div>
+    <WidgetSpotify />
   </div>
 </template>
 
@@ -154,7 +152,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .dark-mode {
   strong {
     color: white;

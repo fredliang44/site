@@ -1,6 +1,6 @@
 <template>
-  <Body>
-    <div class="blog container">
+  <div>
+    <div class="container blog">
       <div class="toc">
         <!-- <ul>
           <li
@@ -13,14 +13,14 @@
         </ul> -->
       </div>
       <div class="blog-post">
-        <article class="prose prose-sm sm:prose lg:prose-lg mx-auto">
+        <article class="mx-auto prose-sm prose sm:prose lg:prose-lg">
           <h1 class="post-title">{{ post.title }}</h1>
           <p class="datetime">{{ $dateFns.format(post.date) }}</p>
           <nuxt-content :document="post" />
         </article>
       </div>
     </div>
-  </Body>
+  </div>
 </template>
 <script>
 export default {
