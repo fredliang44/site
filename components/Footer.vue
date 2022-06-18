@@ -1,5 +1,5 @@
 <template>
-  <div id="footer" class="">
+  <div id="footer" class="dark:text-white/75">
     <!-- <div class="shadow"></div> -->
     <div class="footer_info">
       <p class="author">
@@ -102,7 +102,6 @@ export default {
   z-index: -100;
   width: 100%;
   overflow: hidden;
-  color: inherit;
   clear: both;
   text-align: center;
   min-height: 18vh;

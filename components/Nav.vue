@@ -2,30 +2,33 @@
   <div class="nav bg-white/5">
     <div class="container dark:text-white" style="">
       <ul>
-        <li>
+        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
           <nuxt-link :to="localePath('/')">{{ $t('home') }}</nuxt-link>
         </li>
-        <li>
+        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
           <nuxt-link :to="localePath('/blog')">{{ $t('blog') }}</nuxt-link>
         </li>
-        <li>
+        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
           <nuxt-link :to="localePath('/gallery')">{{
             $t('gallery')
           }}</nuxt-link>
         </li>
-        <li>
+        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
           <nuxt-link :to="localePath('/about')">{{ $t('about') }}</nuxt-link>
         </li>
       </ul>
 
-      <div class="mode-switcher switcher" @click="switchMode">
+      <div
+        class="p-1 transition rounded-md mode-switcher switcher hover:bg-white/10"
+        @click="switchMode"
+      >
         <svg class="icon" aria-hidden="true">
           <use v-if="$colorMode.value === 'light'" xlink:href="#icon-sun"></use>
           <use v-if="$colorMode.value === 'dark'" xlink:href="#icon-moon"></use>
         </svg>
       </div>
       <nuxt-link
-        class="lang-switcher switcher"
+        class="p-1 transition rounded-md lang-switcher switcher hover:bg-white/10"
         :to="locale == 'en' ? switchLocalePath('zh') : switchLocalePath('en')"
       >
         <svg class="icon" aria-hidden="true">
@@ -66,9 +69,6 @@ export default {
     }
 
     .switcher {
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
       .icon {
         color: white;
       }
@@ -108,14 +108,8 @@ export default {
 
   .switcher {
     float: right;
-    border-radius: 3px;
-    transition: 0.3s;
     cursor: pointer;
-    margin-left: 6px;
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
     .icon {
       color: black;
       margin: 4px;
@@ -140,7 +134,7 @@ export default {
       list-style: none;
       font-size: 16px;
       display: inline;
-      margin-right: 16px;
+      // margin-right: 16px;
       a {
         // text-decoration: none;
         // color: black;

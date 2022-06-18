@@ -1,3 +1,3 @@
 <template>
-  <div class="card">casrd</div>
+  <div class="card dark:text-white">casrd</div>
 </template>

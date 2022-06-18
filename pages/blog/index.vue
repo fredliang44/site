@@ -8,7 +8,9 @@
               localeRoute({ name: 'blog-slug', params: { slug: post.slug } })
             "
           >
-            <div class="overflow-hidden post-preview">
+            <div
+              class="overflow-hidden border post-preview dark:border-white/[.16] border-black[.10]"
+            >
               <div class="post-preview-img -z-10">
                 <nuxt-image
                   class="post-preview-img-cover"
@@ -31,7 +33,9 @@
                 <!-- <nuxt-image src="/icon.png" /> -->
               </div>
 
-              <div class="post-preview-detail">
+              <div
+                class="post-preview-detail dark:bg-white/[.06] bg-black[0.06]"
+              >
                 <h2 class="title">{{ post.title }}</h2>
                 <p class="created-at">
                   {{ $dateFns.format(post.date) }}
@@ -102,7 +106,7 @@ img {
 
 .dark {
   .blog .post-list .post-item .post-preview {
-    border: 1px rgba(255, 255, 255, 0.1) solid;
+    // border: 1px rgba(255, 255, 255, 0.1) solid;
     .post-preview-tags {
       .post-preview-tag {
         p {
@@ -142,7 +146,7 @@ img {
       // min-width: 400px;
       .post-preview {
         border-radius: 20px;
-        border: 1px rgba(0, 0, 0, 0.15) solid;
+        // border: 1px rgba(0, 0, 0, 0.15) solid;
         transition: box-shadow 0.2s, transform 0.7s;
         .post-preview-img {
           border-top-left-radius: 20px;

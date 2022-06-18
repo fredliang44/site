@@ -78,13 +78,13 @@
 import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
 // import { defaultExtensions } from '@tiptap/starter-kit'
 import StarterKit from '@tiptap/starter-kit'
-import { Document } from '@tiptap/extension-document'
-import { Paragraph } from '@tiptap/extension-paragraph'
-import { Text } from '@tiptap/extension-text'
+// import { Document } from '@tiptap/extension-document'
+// import { Paragraph } from '@tiptap/extension-paragraph'
+// import { Text } from '@tiptap/extension-text'
 import { Link } from '@tiptap/extension-link'
 import { Highlight } from '@tiptap/extension-highlight'
 import { Typography } from '@tiptap/extension-typography'
-import { Code } from '@tiptap/extension-code'
+// import { Code } from '@tiptap/extension-code'
 
 import { Collaboration } from '@tiptap/extension-collaboration'
 import { CollaborationCursor } from '@tiptap/extension-collaboration-cursor'
@@ -128,14 +128,18 @@ export default {
       extensions: [
         // …
         // Register the document with tiptap
-        StarterKit,
+        // StarterKit,
+        StarterKit.configure({
+          // The Collaboration extension comes with its own history handling
+          history: false,
+        }),
         Highlight,
         Typography,
         Document,
-        Paragraph,
+        // Paragraph,
         Text,
         Link,
-        Code,
+        // Code,
         Collaboration.configure({
           document: ydoc,
         }),
@@ -154,7 +158,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .dark {
   strong {
     color: white;
