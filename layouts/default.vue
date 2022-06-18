@@ -1,6 +1,8 @@
 <template>
   <div class="app">
-    <Nuxt />
+    <Body>
+      <Nuxt />
+    </Body>
   </div>
 </template>
 <script>
@@ -12,6 +14,11 @@ export default {
       'https://www.googleoptimize.com/optimize.js?id=OPT-57XL8N9'
     )
     document.head.appendChild(optmizeScript)
+  },
+  head: {
+    bodyAttrs: {
+      class: 'dark:bg-black bg-white',
+    },
   },
 }
 </script>
@@ -30,24 +37,24 @@ export default {
   width: 100%;
 }
 
-.dark-mode {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  a,
-  p,
-  tr,
-  td,
-  ul,
-  li {
-    color: white;
-  }
+.dark {
+  // h1,
+  // h2,
+  // h3,
+  // h4,
+  // h5,
+  // a,
+  // p,
+  // tr,
+  // td,
+  // ul,
+  // li {
+  //   color: white;
+  // }
 
-  body {
-    background-color: black;
-  }
+  // body {
+  //   background-color: black;
+  // }
 }
 
 html {
@@ -71,9 +78,9 @@ h1 {
   font-size: 72px;
 }
 
-a {
-  color: grey;
-}
+// a {
+//   color: grey;
+// }
 
 h1,
 h2,

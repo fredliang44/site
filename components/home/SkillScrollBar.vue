@@ -52,11 +52,11 @@ export default {
 </script>
 
 <style lang="less">
-.dark-mode .tools > p {
+.dark .tools > p {
   color: rgb(180, 180, 180);
 }
 
-.dark-mode .skills > p {
+.dark .skills > p {
   color: rgb(180, 180, 180);
 }
 

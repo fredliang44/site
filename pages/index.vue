@@ -132,7 +132,7 @@ export default {
 </script>
 
 <style lang="less">
-.dark-mode {
+.dark {
   h2,
   h3 {
     color: rgba(255, 255, 255, 0.7);

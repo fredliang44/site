@@ -8,8 +8,8 @@
               localeRoute({ name: 'blog-slug', params: { slug: post.slug } })
             "
           >
-            <div class="post-preview">
-              <div class="post-preview-img">
+            <div class="overflow-hidden post-preview">
+              <div class="post-preview-img -z-10">
                 <nuxt-image
                   class="post-preview-img-cover"
                   fit="cover"
@@ -100,7 +100,7 @@ img {
   width: 100%;
 }
 
-.dark-mode {
+.dark {
   .blog .post-list .post-item .post-preview {
     border: 1px rgba(255, 255, 255, 0.1) solid;
     .post-preview-tags {

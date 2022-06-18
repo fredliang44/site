@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="less">
-.dark-mode {
+.dark {
   .acrylic-card {
     // background-color: rgba(255, 255, 255, 0.1);
     border: rgba(255, 255, 255, 0.4) solid 2px;

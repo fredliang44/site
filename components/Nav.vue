@@ -1,12 +1,17 @@
 <template>
-  <div class="nav">
-    <div class="container" style="">
+  <div class="nav bg-white/5">
+    <div class="container dark:text-white" style="">
       <ul>
         <li>
           <nuxt-link :to="localePath('/')">{{ $t('home') }}</nuxt-link>
         </li>
         <li>
           <nuxt-link :to="localePath('/blog')">{{ $t('blog') }}</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="localePath('/gallery')">{{
+            $t('gallery')
+          }}</nuxt-link>
         </li>
         <li>
           <nuxt-link :to="localePath('/about')">{{ $t('about') }}</nuxt-link>
@@ -52,9 +57,9 @@ export default {
 </script>
 
 <style lang="less">
-.dark-mode {
+.dark {
   .nav {
-    background-color: rgba(27, 27, 27, 0.5) !important;
+    // background-color: rgba(27, 27, 27, 0.5) !important;
     border-bottom: solid 1px rgba(162, 162, 162, 0.1);
     ul > li > a {
       color: white;
@@ -90,7 +95,7 @@ export default {
   height: 48px;
   top: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  // background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   border-bottom: solid 1px rgba(0, 0, 0, 0.06);
   z-index: 1;
@@ -137,8 +142,8 @@ export default {
       display: inline;
       margin-right: 16px;
       a {
-        text-decoration: none;
-        color: black;
+        // text-decoration: none;
+        // color: black;
       }
     }
   }

@@ -46,7 +46,9 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['normalize.css/normalize.css'],
+  css: [
+    // 'normalize.css/normalize.css',
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -56,12 +58,15 @@ export default {
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: {
-    dirs: ['~/components', '~/components/background', '~/components/basic'],
-  },
+  // components: {
+  //   dirs: ['~/components', '~/components/background', '~/components/basic'],
+  // },
+  components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    // '@nuxt/postcss8',
+
     // '@nuxtjs/tailwindcss',
     '@nuxtjs/tailwindcss',
 
@@ -91,6 +96,13 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    [
+      '@nuxtjs/tailwindcss',
+      {
+        viewer: true,
+      },
+    ],
+
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
@@ -159,6 +171,7 @@ export default {
 
   colorMode: {
     preference: 'dark',
+    classSuffix: '',
   },
 
   image: {
@@ -193,7 +206,7 @@ export default {
     //   },
     // },
   },
-
+  devServerHandlers: [],
   sitemap: {
     hostname: 'https://lzb.im',
     gzip: true,
@@ -219,11 +232,13 @@ export default {
         en: {
           home: 'Home',
           blog: 'Blog',
+          gallery: 'Gallery',
           about: 'About',
         },
         zh: {
           home: '主页',
           blog: '文章',
+          gallery: '作品',
           about: '关于',
         },
       },

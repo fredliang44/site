@@ -3,7 +3,9 @@
     <div class="about">
       <div class="container" style="">
         <client-only>
-          <article class="mx-auto prose-sm prose sm:prose lg:prose-lg">
+          <article
+            class="mx-auto prose-sm prose sm:prose lg:prose-lg dark:prose-invert"
+          >
             <bubble-menu
               v-if="editor"
               class="bubble-menu"
@@ -153,7 +155,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.dark-mode {
+.dark {
   strong {
     color: white;
   }

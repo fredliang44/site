@@ -1,5 +1,5 @@
 <template>
-  <div id="footer">
+  <div id="footer" class="">
     <!-- <div class="shadow"></div> -->
     <div class="footer_info">
       <p class="author">
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="less">
-.dark-mode {
+.dark {
   #footer {
     background-color: black;
   }
@@ -109,7 +109,6 @@ export default {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  background: white;
 
   p {
     font-family: product sans, google sans, Roboto, Arial, Helvetica, sans-serif;
