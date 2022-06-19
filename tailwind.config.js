@@ -16,6 +16,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {},
+    maxWidth: {
+      '1/2': '50%',
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }

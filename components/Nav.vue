@@ -1,25 +1,41 @@
 <template>
-  <div class="nav bg-white/5">
-    <div class="container dark:text-white" style="">
-      <ul>
-        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
+  <div class="nav bg-white/50 dark:bg-black/50">
+    <div class="container flex dark:text-white flex-nowrap" style="">
+      <ul
+        class="my-1 -ml-2 overflow-x-auto whitespace-nowrap nav-list"
+        style=""
+      >
+        <li
+          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
           <nuxt-link :to="localePath('/')">{{ $t('home') }}</nuxt-link>
         </li>
-        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
+        <li
+          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
           <nuxt-link :to="localePath('/blog')">{{ $t('blog') }}</nuxt-link>
         </li>
-        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
+        <li
+          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
           <nuxt-link :to="localePath('/gallery')">{{
             $t('gallery')
           }}</nuxt-link>
         </li>
-        <li class="px-2 py-1 transition rounded-md hover:bg-white/10">
+        <li
+          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
+          <nuxt-link :to="localePath('/tools')">{{ $t('tools') }}</nuxt-link>
+        </li>
+        <li
+          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
           <nuxt-link :to="localePath('/about')">{{ $t('about') }}</nuxt-link>
         </li>
       </ul>
 
       <div
-        class="p-1 transition rounded-md mode-switcher switcher hover:bg-white/10"
+        class="p-1 transition duration-300 rounded-md mode-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
         @click="switchMode"
       >
         <svg class="icon" aria-hidden="true">
@@ -28,7 +44,7 @@
         </svg>
       </div>
       <nuxt-link
-        class="p-1 transition rounded-md lang-switcher switcher hover:bg-white/10"
+        class="p-1 transition duration-300 rounded-md lang-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
         :to="locale == 'en' ? switchLocalePath('zh') : switchLocalePath('en')"
       >
         <svg class="icon" aria-hidden="true">
@@ -63,7 +79,7 @@ export default {
 .dark {
   .nav {
     // background-color: rgba(27, 27, 27, 0.5) !important;
-    border-bottom: solid 1px rgba(162, 162, 162, 0.1);
+    border-bottom: solid 1px rgba(162, 162, 162, 0.2);
     ul > li > a {
       color: white;
     }
@@ -99,7 +115,9 @@ export default {
   backdrop-filter: blur(5px);
   border-bottom: solid 1px rgba(0, 0, 0, 0.06);
   z-index: 1;
-
+  .nav-list::-webkit-scrollbar {
+    display: none;
+  }
   .lang-switcher {
     &:hover .icon {
       color: #008cff;
@@ -128,7 +146,6 @@ export default {
   }
   ul {
     padding: 0;
-    margin: 4px 0;
     display: inline-block;
     li {
       list-style: none;

@@ -1,11 +1,11 @@
 <template>
-  <div v-if="track" class="float-card">
+  <div v-if="track" class="float-card dark:bg-gray-800/[0.6]">
     <img
       class="float-card-logo"
       src="~assets/img/SpotifyLogo.png"
       alt="spotify logo"
     />
-    <div class="float-card-track-info">
+    <div class="text-slate-600 dark:text-gray-400 float-card-track-info">
       <div class="float-card-track-info-title">Recently Played</div>
       <div class="float-card-track-info-name">
         {{ track.playing_album_name }}
@@ -42,7 +42,7 @@ export default {
   left: 1rem;
   width: 12rem;
   height: 4rem;
-  background-color: rgba(43, 43, 43, 0.5);
+  // background-color: rgba(43, 43, 43, 0.5);
   border-radius: 1rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
@@ -64,7 +64,7 @@ export default {
     position: relative;
     vertical-align: middle;
     overflow: hidden;
-    color: rgba(255, 255, 255, 0.75);
+    // color: rgba(255, 255, 255, 0.75);
     &-title {
       font-weight: bold;
     }

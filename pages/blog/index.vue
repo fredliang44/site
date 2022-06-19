@@ -9,7 +9,7 @@
             "
           >
             <div
-              class="overflow-hidden border post-preview dark:border-white/[.16] border-black[.10]"
+              class="overflow-hidden hover:shadow-2xl hover:shadow-gray-200 hover:dark:shadow-gray-800 hover:-translate-y-0.5 transition-all duration-300 ease-in-out rounded-3xl border post-preview dark:border-white/[.22] border-black[.10]"
             >
               <div class="post-preview-img -z-10">
                 <nuxt-image
@@ -34,7 +34,7 @@
               </div>
 
               <div
-                class="post-preview-detail dark:bg-white/[.06] bg-black[0.06]"
+                class="post-preview-detail dark:bg-white/[.09] bg-black[0.06]"
               >
                 <h2 class="title">{{ post.title }}</h2>
                 <p class="created-at">
@@ -145,9 +145,8 @@ img {
       width: 48%;
       // min-width: 400px;
       .post-preview {
-        border-radius: 20px;
         // border: 1px rgba(0, 0, 0, 0.15) solid;
-        transition: box-shadow 0.2s, transform 0.7s;
+        // transition: box-shadow 0.2s, transform 0.7s;
         .post-preview-img {
           border-top-left-radius: 20px;
           border-top-right-radius: 20px;
@@ -208,10 +207,10 @@ img {
           padding: 20px;
         }
 
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 3px 40px rgba(255, 255, 255, 0.25);
-        }
+        // &:hover {
+        //   transform: translateY(-2px);
+        //   box-shadow: 0 3px 40px rgba(255, 255, 255, 0.25);
+        // }
       }
     }
   }

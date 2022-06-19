@@ -184,27 +184,27 @@ export default {
       xxl: 1536,
       '2xl': 1536,
     },
-    // // Options
-    // ipx: {
-    //   /**
-    //    * Input directory for images
-    //    **/
-    //   dir: '~/assets',
-    //   /**
-    //    * Cache directory for optimized images
-    //    **/
-    //   cacheDir: '~~/node_modules/.cache/nuxt-image',
-    //   /**
-    //    * Enable/Disable cache cleaning cron job
-    //    **/
-    //   clearCache: false,
-    //   /**
-    //    * Modify default behavior of image optimizer
-    //    **/
-    //   sharp: {
-    //     // Here is complete list of available options: https://github.com/lovell/sharp/blob/master/lib/constructor.js#L132
-    //   },
-    // },
+    // Options
+    ipx: {
+      /**
+       * Input directory for images
+       **/
+      dir: '~/assets',
+      /**
+       * Cache directory for optimized images
+       **/
+      cacheDir: '~~/node_modules/.cache/nuxt-image',
+      /**
+       * Enable/Disable cache cleaning cron job
+       **/
+      clearCache: false,
+      /**
+       * Modify default behavior of image optimizer
+       **/
+      sharp: {
+        // Here is complete list of available options: https://github.com/lovell/sharp/blob/master/lib/constructor.js#L132
+      },
+    },
   },
   devServerHandlers: [],
   sitemap: {
@@ -234,12 +234,14 @@ export default {
           blog: 'Blog',
           gallery: 'Gallery',
           about: 'About',
+          tools: 'Tools',
         },
         zh: {
           home: '主页',
           blog: '文章',
           gallery: '作品',
           about: '关于',
+          tools: '工具',
         },
       },
     },

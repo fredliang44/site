@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-prose">
+  <div class="container mx-auto">
     <div class="py-5">
       <p class="text-4xl font-medium dark:text-white">Products</p>
       <p class="text-lg text-gray-500">Products I participate / made</p>

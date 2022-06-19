@@ -17,8 +17,15 @@ export default {
   },
   head: {
     bodyAttrs: {
-      class: 'dark:bg-black bg-white',
+      class: 'dark:bg-black bg-white transition',
     },
+    script: [
+      {
+        innerHTML: `if (localStorage.getItem('nuxt-color-mode')) document.documentElement.setAttribute("data-theme", localStorage.theme);`,
+        type: 'text/javascript',
+        charset: 'utf-8',
+      },
+    ],
   },
 }
 </script>
@@ -27,6 +34,10 @@ export default {
   font-family: Product Sans, 'SF Pro SC', 'HanHei SC', 'SF Pro Text',
     'Myriad Set Pro', 'SF Pro Icons', 'PingFang SC', 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
+}
+
+.dark .dark\:bg-black {
+  background-color: rgb(0 0 0);
 }
 
 .container {

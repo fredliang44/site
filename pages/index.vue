@@ -2,7 +2,7 @@
   <div class="main">
     <div class="content">
       <div class="container">
-        <div class="text-gray-200 title">
+        <div class="text-gray-700 dark:text-gray-200 title">
           <h1 class="intro intro-line-1">Hi, I'm Fred Liang</h1>
           <h1 class="intro intro-line-2" style="display: inline">I Build</h1>
           <h1 class="product-text" style="display: inline">Product</h1>
