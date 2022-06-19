@@ -21,6 +21,8 @@
           :link="product.link"
           :support-dark-mode="product.supportDarkMode"
           :lock="product.lock"
+          :stage="product.stage"
+          :tags="product.tags"
           class="m-4"
         />
       </div>
@@ -44,6 +46,8 @@ export default {
               role: 'Creator',
               img: '/img/products/let.sh',
               link: 'https://let.sh/',
+              stage: 'Alpha',
+              tags: ['role:Creator'],
             },
             {
               name: 'Event Bridger',
@@ -51,14 +55,18 @@ export default {
                 'The bridge for your SaaS, IM, Device. Including Stripe, SMS, Slack, etc.',
               role: 'Creator',
               img: '/img/products/eventbridger',
+              stage: 'WIP',
               link: 'https://eventbridge.app/',
+              tags: ['role:Creator'],
             },
             {
               name: 'Libra',
               description:
                 'The A/B Testing platform inside ByteDance(aka. TikTok)',
               role: 'PM',
+              stage: 'Online',
               lock: true,
+              tags: ['role:PM'],
             },
             {
               name: 'BytePlus Optimize',
@@ -67,6 +75,8 @@ export default {
               role: 'PM',
               img: '/img/products/byteplus',
               link: 'https://www.byteplus.com/en/product/data-intelligence/optimize',
+              stage: 'Online',
+              tags: ['role:PM'],
               // lock: true,
             },
             {
@@ -76,6 +86,8 @@ export default {
               role: 'PM',
               img: '/img/products/volcengine',
               link: 'https://www.volcengine.com/product/datatester',
+              stage: 'Online',
+              tags: ['role:PM'],
               // lock: true,
             },
           ],

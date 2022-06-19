@@ -1,10 +1,14 @@
 <template>
   <div
     :class="[
-      lock ? '' : 'hover:shadow-2xl',
-      lock ? '' : 'hover:shadow-gray-100',
-      lock ? '' : 'hover:dark:shadow-gray-800',
-      lock ? '' : 'hover:-translate-y-0.5',
+      lock
+        ? ''
+        : [
+            'hover:shadow-2xl',
+            'hover:shadow-gray-100',
+            'hover:dark:shadow-gray-800',
+            'hover:-translate-y-0.5',
+          ],
       'transition-all',
       'duration-300',
       'ease-in-out',
@@ -21,12 +25,12 @@
   >
     <a
       :href="link"
-      :class="lock ? 'pointer-events-none' : ''"
+      :class="lock ? 'pointer-events-none h-full' : ' h-full'"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div class="flex flex-col p-4">
-        <div class="flex mb-2">
+      <div class="flex flex-col h-full p-4">
+        <div class="flex items-center mb-2">
           <nuxt-image
             v-if="img && !supportDarkMode"
             class="inline-block w-12 h-12 m-0 mr-3 shadow-[0_0_15px_-2px] shadow-slate-200 dark:shadow-none rounded-2xl dark:bg-gray-800 bg-white"
@@ -78,10 +82,48 @@
               />
             </svg>
           </div>
+          <div
+            v-if="stage"
+            :class="[
+              'justify-end',
+              'ml-auto',
+              'px-4',
+              'py-1',
+              'rounded-full',
+              'text-white',
+              'font-semibold',
+              stage === 'Alpha' ? 'bg-sky-600/90' : '',
+              stage === 'WIP' ? 'bg-amber-500/90' : '',
+              stage === 'Online' ? 'bg-green-500/90' : '',
+            ]"
+          >
+            <p>{{ stage }}</p>
+          </div>
         </div>
 
         <div class="">
           <div class="break-normal text-slate-400">{{ description }}</div>
+        </div>
+        <div v-if="tags" class="flex mt-auto">
+          <div class="mt-2">
+            <div
+              v-for="tag in tags"
+              :key="tag.index"
+              :class="[
+                'px-3',
+                'py-0.5',
+                'rounded-full',
+                'transition',
+                'ease-in-out',
+                'duration-200',
+                tag.includes('role')
+                  ? ['text-gray-400', 'bg-gray-600/30', 'hover:bg-gray-600/70']
+                  : '',
+              ]"
+            >
+              <p>{{ tag }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </a>
@@ -119,6 +161,14 @@ export default {
     supportDarkMode: {
       type: Boolean,
       default: false,
+    },
+    stage: {
+      type: String,
+      default: '',
+    },
+    tags: {
+      type: Array,
+      default: null,
     },
   },
   mounted() {},
