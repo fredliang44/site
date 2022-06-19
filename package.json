@@ -31,6 +31,7 @@
     "@tiptap/vue-2": "^2.0.0-beta.47",
     "@tiptap/vue-3": "^2.0.0-beta.53",
     "animejs": "^3.2.0",
+    "classnames": "^2.3.1",
     "core-js": "^3.6.5",
     "firebase": "^8.3.1",
     "gasp": "^0.0.2",

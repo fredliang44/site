@@ -35,7 +35,7 @@
       </ul>
 
       <div
-        class="p-1 transition duration-300 rounded-md mode-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        class="justify-end p-1 ml-auto transition duration-300 rounded-md mode-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
         @click="switchMode"
       >
         <svg class="icon" aria-hidden="true">
@@ -44,7 +44,7 @@
         </svg>
       </div>
       <nuxt-link
-        class="p-1 transition duration-300 rounded-md lang-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        class="justify-end p-1 transition duration-300 rounded-md lang-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
         :to="locale == 'en' ? switchLocalePath('zh') : switchLocalePath('en')"
       >
         <svg class="icon" aria-hidden="true">
