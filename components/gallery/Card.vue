@@ -62,7 +62,7 @@
                       'hover:bg-gray-300',
                       'dark:text-gray-400',
                       'dark:bg-gray-600/30',
-                      'dark:hover:bg-gray-600/70',
+                      'dark:hover:bg-gray-600/40',
                     ]
                   : '',
               ]"
@@ -74,7 +74,13 @@
                 v-if="extend && 'docs' in extend"
                 :class="[
                   'p-2',
+                  'duration-300',
+                  'text-gray-500',
+                  'dark:text-gray-400',
+                  'bg-black/[0.04]',
                   'dark:bg-white/[.05]',
+                  'hover:bg-black/[.1]',
+                  'active:bg-black/[.2]',
                   'hover:dark:bg-white/[.15]',
                   'active:dark:bg-white/25',
                   'rounded-lg',
@@ -85,7 +91,7 @@
                   rel="noopener noreferrer"
                   :href="extend.docs"
                 >
-                  <div :class="['text-gray-400']">
+                  <div>
                     <Icon icon="file" size="16" />
                   </div>
                 </a>
@@ -95,14 +101,20 @@
                 :class="[
                   'ml-2',
                   'p-2',
+                  'duration-300',
+                  'text-gray-500',
+                  'dark:text-gray-400',
+                  'bg-black/[0.04]',
                   'dark:bg-white/[.05]',
+                  'hover:bg-black/[.1]',
                   'hover:dark:bg-white/[.15]',
+                  'active:bg-black/[.2]',
                   'active:dark:bg-white/25',
                   'rounded-lg',
                 ]"
               >
                 <a target="_blank" rel="noopener noreferrer" :href="link">
-                  <div :class="['text-gray-400']">
+                  <div>
                     <Icon icon="link-external" size="16" />
                   </div>
                 </a>

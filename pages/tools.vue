@@ -167,7 +167,7 @@ export default {
             {
               name: 'AWS',
               description:
-                'The most popular cloud provider in the world. I use it for most of my projects.',
+                'Oldest and most diverse cloud platform. Messy but you can always find a solution/product here(and need some development).',
               img: '/img/tools/aws',
               link: 'https://aws.amazon.com/',
               supportDarkMode: true,
@@ -175,21 +175,21 @@ export default {
             {
               name: 'Google Cloud',
               description:
-                'Google Cloud Platform is a cloud computing platform that provides a complete suite of services, including storage, compute, networking, and other infrastructure, for the developer.',
+                'Most well designed infra and pay by the usage. First choice for project, but a bit expensice.',
               img: '/img/tools/googlecloud',
               link: 'https://cloud.google.com/',
             },
             {
               name: 'Azure',
               description:
-                'Microsoft Azure is a cloud computing platform that provides a complete suite of services, including storage, compute, networking, and other infrastructure, for the developer.',
+                'Azure have best interenet connection to China among the cloud providers. Expensive and the dashboard is hard to use.',
               img: '/img/tools/azure',
               link: 'https://azure.microsoft.com/',
             },
             {
               name: 'Tencent Cloud',
               description:
-                'Tencent Cloud is a cloud computing platform that provides a complete suite of services, including storage, compute, networking, and other infrastructure, for the developer.',
+                'Affordable with discounts. And you might interrupt by serval accidents every year.',
               img: '/img/tools/tencentcloud',
               link: 'https://cloud.tencent.com/',
             },

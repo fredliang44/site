@@ -53,7 +53,7 @@
         'p-1.5',
         'my-auto',
         'bg-gray-100',
-        'dark:bg-gray-800',
+        'dark:bg-white/10',
         'rounded-full',
       ]"
     >
@@ -110,6 +110,7 @@ export default {
       type: String,
       required: true,
     },
+
     lock: {
       type: Boolean,
       default: false,

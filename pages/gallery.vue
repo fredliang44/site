@@ -129,6 +129,9 @@ export default {
               img: '/img/products/tbd',
               link: 'https://github.com/TBD54566975/ssi-service',
               supportDarkMode: true,
+              extend: {
+                docs: 'https://docs.google.com/presentation/d/1SaHGyY9TjPg4a0VNLCsfchoVG1yU3ffTDsPRcU99H1E/mobilepresent?slide=id.g11c16fe40c4_0_1104',
+              },
             },
             {
               name: 'DERP Server',

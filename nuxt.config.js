@@ -187,6 +187,7 @@ export default {
       useWebmanifestExtension: false,
     },
     workbox: {
+      offline: false,
       cleanupOutdatedCaches: true,
     },
   },
