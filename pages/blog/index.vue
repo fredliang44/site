@@ -13,8 +13,10 @@
             >
               <div class="post-preview-img -z-10">
                 <nuxt-image
+                  format="webp"
                   class="post-preview-img-cover"
                   fit="cover"
+                  preload
                   :src="post.image"
                   :alt="post.title"
                   quality="80"

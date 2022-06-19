@@ -11,10 +11,10 @@
       <div class="break-normal text-slate-400">
         {{ productListItem.description }}
       </div>
-      <div class="flex flex-wrap mt-3 -m-4">
+      <div class="flex flex-wrap mt-3 -m-4 transition">
         <GalleryCard
           v-for="(product, productIndex) in productListItem.productList"
-          :key="productIndex"
+          :key="'product' + productIndex"
           :name="product.name"
           :description="product.description"
           :img="product.img"
@@ -23,6 +23,8 @@
           :lock="product.lock"
           :stage="product.stage"
           :tags="product.tags"
+          :custom-img="product.customImg"
+          :extend="product.extend"
           class="m-4"
         />
       </div>
@@ -48,6 +50,9 @@ export default {
               link: 'https://let.sh/',
               stage: 'Alpha',
               tags: ['role:Creator'],
+              extend: {
+                docs: 'https://docs.let.sh',
+              },
             },
             {
               name: 'Event Bridger',
@@ -67,27 +72,34 @@ export default {
               stage: 'Online',
               lock: true,
               tags: ['role:PM'],
+              customImg: true,
             },
             {
-              name: 'BytePlus Optimize',
+              name: 'ByteOptimize',
               description:
-                'The A/B Testing for international market. provides flexible, end-to-end experimentation tools that help to improve products, apps, websites, and marketing engagement.',
+                'The A/B Testing platform for international market. Providing flexible, end-to-end experimentation tools that help to improve products, apps, websites, and marketing engagement.',
               role: 'PM',
               img: '/img/products/byteplus',
               link: 'https://www.byteplus.com/en/product/data-intelligence/optimize',
               stage: 'Online',
               tags: ['role:PM'],
+              extend: {
+                docs: 'https://docs.byteplus.com/data-intelligence/docs/what-is-byteplus-optimize',
+              },
               // lock: true,
             },
             {
-              name: 'DataTester',
+              name: 'Tester',
               description:
-                'The A/B Testing for China market. DataTester supports visual editor, multi-page, programming experiments and more.',
+                'The A/B Testing platform for China market. DataTester supports visual editor, multi-page, programming experiments and more.',
               role: 'PM',
               img: '/img/products/volcengine',
               link: 'https://www.volcengine.com/product/datatester',
               stage: 'Online',
               tags: ['role:PM'],
+              extend: {
+                docs: 'https://www.volcengine.com/docs/6287/65794',
+              },
               // lock: true,
             },
           ],
@@ -123,6 +135,9 @@ export default {
               description: 'The tailscale derp server for service discovery',
               img: '/img/tools/tailscale',
               link: 'https://derp.fredliang.cn/',
+              extend: {
+                docs: 'https://tailscale.com/kb/1118/custom-derp-servers/',
+              },
             },
             {
               name: 'File Store',
@@ -131,6 +146,7 @@ export default {
               img: '/img/products/files',
               link: 'https://drive.lzb.im/',
               supportDarkMode: true,
+              customImg: true,
             },
           ],
         },

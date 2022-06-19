@@ -105,8 +105,10 @@ export default {
 
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
 
@@ -172,6 +174,21 @@ export default {
   colorMode: {
     preference: 'dark',
     classSuffix: '',
+  },
+
+  pwa: {
+    meta: {
+      ogHost: 'https://lzb.im',
+    },
+    manifest: {
+      name: "Fred's Site",
+      short_name: "Fred's Site",
+      lang: 'en',
+      useWebmanifestExtension: false,
+    },
+    workbox: {
+      cleanupOutdatedCaches: true,
+    },
   },
 
   image: {
