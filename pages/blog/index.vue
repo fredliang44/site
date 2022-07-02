@@ -5,7 +5,10 @@
         <div v-for="post of posts" :key="post.slug" class="post-item">
           <NuxtLink
             :to="
-              localeRoute({ name: 'blog-slug', params: { slug: post.slug } })
+              localeRoute({
+                name: 'blog-slug',
+                params: { slug: post.slug.split('.')[0] },
+              })
             "
           >
             <div
@@ -57,40 +60,29 @@
 <script>
 export default {
   async asyncData({ $content, params, i18n }) {
-    if (process.env.NODE_ENV === 'production') {
-      const posts = await $content('blog/' + i18n.locale, params.slug)
-        .where({ draft: { $eq: false } })
-        .only([
-          'title',
-          'description',
-          'image',
-          'slug',
-          'tags',
-          'author',
-          'hidden',
-          'date',
-          'createdAt',
-        ])
-        .sortBy('date', 'desc')
-        .fetch()
-      return { posts }
-    } else {
-      const posts = await $content('blog/' + i18n.locale, params.slug)
-        .only([
-          'title',
-          'description',
-          'image',
-          'slug',
-          'tags',
-          'author',
-          'hidden',
-          'date',
-          'createdAt',
-        ])
-        .sortBy('date', 'desc')
-        .fetch()
-      return { posts }
-    }
+    const posts = await $content('blog')
+      .where(
+        process.env.NODE_ENV === 'production'
+          ? {
+              draft: { $eq: false },
+              slug: { $regex: '(.' + i18n.locale + ')$' },
+            }
+          : { slug: { $regex: '(.' + i18n.locale + ')$' } }
+      )
+      .only([
+        'title',
+        'description',
+        'image',
+        'slug',
+        'tags',
+        'author',
+        'hidden',
+        'date',
+        'createdAt',
+      ])
+      .sortBy('date', 'desc')
+      .fetch()
+    return { posts }
   },
   methods: {
     async getImgInfo(img) {

@@ -166,6 +166,15 @@ export default {
               supportDarkMode: true,
               customImg: true,
             },
+            {
+              name: 'Cal',
+              description:
+                'The event-juggling scheduler for everyone. Focus on meeting, not making meetings.Personal sharing file index service. Including some ISO images, pictures, papers, book, etc.',
+              img: '/img/products/cal',
+              link: 'https://cal.fredliang.cn/',
+              supportDarkMode: true,
+              customImg: true,
+            },
           ],
         },
       ],

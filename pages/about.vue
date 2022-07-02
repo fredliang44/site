@@ -36,8 +36,8 @@ export default {
     Article,
   },
 
-  async asyncData({ $content }) {
-    const post = await $content('about').fetch()
+  async asyncData({ $content, i18n }) {
+    const post = await $content('about.' + i18n.locale).fetch()
     return {
       post,
     }
@@ -48,56 +48,6 @@ export default {
       editor: null,
     }
   },
-
-  // mounted() {
-  //   // A new Y document
-  //   const ydoc = new Y.Doc()
-  //   // Registered with a WebSocket provider
-
-  //   // eslint-disable-next-line no-unused-vars
-  //   const Provider = new WebsocketProvider(
-  //     'wss://dyn-doc.fredliang.cn',
-  //     // 'ws://168.63.219.123:11234',
-  //     // 'ws://localhost:11234',
-  //     'about-comment',
-  //     ydoc
-  //   )
-
-  //   this.editor = new Editor({
-  //     editable: true,
-  //     // editable: process.env.NODE_ENV !== 'production',
-  //     // content:
-  //     //   '<p>A Vue.js wrapper component for tiptap to use <code>v-model</code>.</p>',
-  //     // extensions: defaultExtensions(),
-  //     extensions: [
-  //       // …
-  //       // Register the document with tiptap
-  //       // StarterKit,
-  //       StarterKit.configure({
-  //         // The Collaboration extension comes with its own history handling
-  //         history: false,
-  //       }),
-  //       Highlight,
-  //       Typography,
-  //       Document,
-  //       // Paragraph,
-  //       Text,
-  //       Link,
-  //       // Code,
-  //       Collaboration.configure({
-  //         document: ydoc,
-  //       }),
-  //       CollaborationCursor.configure({
-  //         provider: Provider,
-  //         name: 'Cyndi Lauper',
-  //         color: '#f783ac',
-  //       }),
-  //     ],
-  //   })
-  // },
-  // beforeDestroy() {
-  //   this.editor.destroy()
-  // },
 }
 </script>
 

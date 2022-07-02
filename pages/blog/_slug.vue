@@ -28,7 +28,7 @@
 <script>
 export default {
   async asyncData({ $content, params, i18n }) {
-    const post = await $content('blog/' + i18n.locale, params.slug).fetch()
+    const post = await $content('blog', params.slug + '.' + i18n.locale).fetch()
 
     return { post }
   },
