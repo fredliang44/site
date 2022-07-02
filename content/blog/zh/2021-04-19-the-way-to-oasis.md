@@ -9,4 +9,4 @@ image: '/img/oasis-unsplash.jpg'
 
 > Setting up a team under Oasis Networks, Inc.
 
-## Why "Oasis"?
+## Why `Oasis`?

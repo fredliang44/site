@@ -21,7 +21,7 @@
   >
     <a :href="link" target="_blank" rel="noopener noreferrer">
       <div class="flex flex-col p-4">
-        <div class="flex mb-2">
+        <div class="flex items-center w-full mb-2">
           <nuxt-image
             v-if="img && !supportDarkMode"
             class="inline-block w-12 h-12 m-0 mr-3 rounded-2xl dark:bg-gray-800 bg-slate-100"
@@ -35,7 +35,7 @@
           />
           <nuxt-image
             v-if="img && supportDarkMode"
-            class="inline-block w-12 h-12 m-0 mr-3 rounded-2xl dark:bg-gray-800 bg-slate-100"
+            class="inline-block w-10 h-10 m-0 mr-3 rounded-2xl dark:bg-gray-800 bg-slate-100"
             :src="img + '.' + $colorMode.value + '.png'"
             fit="inside"
             preload
@@ -44,7 +44,7 @@
             :alt="name"
             quality="80"
           />
-          <p class="inline text-3xl font-bold leading-normal">
+          <p class="inline text-2xl font-bold leading-normal">
             {{ name }}
           </p>
         </div>

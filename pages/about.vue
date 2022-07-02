@@ -2,79 +2,7 @@
   <div class="about-page">
     <div class="about">
       <div class="container" style="">
-        <client-only>
-          <article
-            :class="[
-              'mx-auto',
-              'prose-sm',
-              'prose',
-              'sm:prose',
-              'lg:prose-lg',
-              'dark:prose-invert',
-            ]"
-          >
-            <bubble-menu
-              v-if="editor"
-              class="bubble-menu"
-              :tippy-options="{ duration: 100 }"
-              :editor="editor"
-            >
-              <button
-                :class="{ 'is-active': editor.isActive('bold') }"
-                @click="editor.chain().focus().toggleBold().run()"
-              >
-                Bold
-              </button>
-              <button
-                :class="{ 'is-active': editor.isActive('italic') }"
-                @click="editor.chain().focus().toggleItalic().run()"
-              >
-                Italic
-              </button>
-              <button
-                :class="{ 'is-active': editor.isActive('strike') }"
-                @click="editor.chain().focus().toggleStrike().run()"
-              >
-                Strike
-              </button>
-            </bubble-menu>
-
-            <floating-menu
-              v-if="editor"
-              class="floating-menu"
-              :tippy-options="{ duration: 100 }"
-              :editor="editor"
-            >
-              <button
-                :class="{
-                  'is-active': editor.isActive('heading', { level: 1 }),
-                }"
-                @click="
-                  editor.chain().focus().toggleHeading({ level: 1 }).run()
-                "
-              >
-                H1
-              </button>
-              <button
-                :class="{
-                  'is-active': editor.isActive('heading', { level: 2 }),
-                }"
-                @click="
-                  editor.chain().focus().toggleHeading({ level: 2 }).run()
-                "
-              >
-                H2
-              </button>
-              <button
-                :class="{ 'is-active': editor.isActive('bulletList') }"
-                @click="editor.chain().focus().toggleBulletList().run()"
-              >
-                Bullet List
-              </button>
-            </floating-menu>
-            <editor-content :editor="editor" />
-          </article>
-        </client-only>
+        <Article :post="post" :comment="true" />
       </div>
     </div>
     <WidgetSpotify />
@@ -82,28 +10,37 @@
 </template>
 
 <script>
-import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
-// import { defaultExtensions } from '@tiptap/starter-kit'
-import StarterKit from '@tiptap/starter-kit'
-// import { Document } from '@tiptap/extension-document'
-// import { Paragraph } from '@tiptap/extension-paragraph'
-// import { Text } from '@tiptap/extension-text'
-import { Link } from '@tiptap/extension-link'
-import { Highlight } from '@tiptap/extension-highlight'
-import { Typography } from '@tiptap/extension-typography'
-// import { Code } from '@tiptap/extension-code'
+// import { Editor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-2'
+// // import { defaultExtensions } from '@tiptap/starter-kit'
+// import StarterKit from '@tiptap/starter-kit'
+// // import { Document } from '@tiptap/extension-document'
+// // import { Paragraph } from '@tiptap/extension-paragraph'
+// // import { Text } from '@tiptap/extension-text'
+// import { Link } from '@tiptap/extension-link'
+// import { Highlight } from '@tiptap/extension-highlight'
+// import { Typography } from '@tiptap/extension-typography'
+// // import { Code } from '@tiptap/extension-code'
 
-import { Collaboration } from '@tiptap/extension-collaboration'
-import { CollaborationCursor } from '@tiptap/extension-collaboration-cursor'
-import * as Y from 'yjs'
-import { WebsocketProvider } from 'y-websocket'
+// import { Collaboration } from '@tiptap/extension-collaboration'
+// import { CollaborationCursor } from '@tiptap/extension-collaboration-cursor'
+// import * as Y from 'yjs'
+// import { WebsocketProvider } from 'y-websocket'
+import Article from '~/components/basic/Article.vue'
 // import { IndexeddbPersistence } from 'y-indexeddb'
 
 export default {
   components: {
-    EditorContent,
-    BubbleMenu,
-    FloatingMenu,
+    // EditorContent,
+    // BubbleMenu,
+    // FloatingMenu,
+    Article,
+  },
+
+  async asyncData({ $content }) {
+    const post = await $content('about').fetch()
+    return {
+      post,
+    }
   },
 
   data() {
@@ -112,56 +49,55 @@ export default {
     }
   },
 
-  mounted() {
-    // A new Y document
-    const ydoc = new Y.Doc()
-    // Registered with a WebSocket provider
+  // mounted() {
+  //   // A new Y document
+  //   const ydoc = new Y.Doc()
+  //   // Registered with a WebSocket provider
 
-    // eslint-disable-next-line no-unused-vars
-    const Provider = new WebsocketProvider(
-      'wss://dyn-doc.fredliang.cn',
-      // 'ws://168.63.219.123:11234',
-      // 'ws://localhost:11234',
-      'about-comment',
-      ydoc
-    )
+  //   // eslint-disable-next-line no-unused-vars
+  //   const Provider = new WebsocketProvider(
+  //     'wss://dyn-doc.fredliang.cn',
+  //     // 'ws://168.63.219.123:11234',
+  //     // 'ws://localhost:11234',
+  //     'about-comment',
+  //     ydoc
+  //   )
 
-    this.editor = new Editor({
-      editable: true,
-      // editable: process.env.NODE_ENV !== 'production',
-      // content:
-      //   '<p>A Vue.js wrapper component for tiptap to use <code>v-model</code>.</p>',
-      // extensions: defaultExtensions(),
-      extensions: [
-        // …
-        // Register the document with tiptap
-        // StarterKit,
-        StarterKit.configure({
-          // The Collaboration extension comes with its own history handling
-          history: false,
-        }),
-        Highlight,
-        Typography,
-        Document,
-        // Paragraph,
-        Text,
-        Link,
-        // Code,
-        Collaboration.configure({
-          document: ydoc,
-        }),
-        CollaborationCursor.configure({
-          provider: Provider,
-          name: 'Cyndi Lauper',
-          color: '#f783ac',
-        }),
-      ],
-    })
-  },
-
-  beforeDestroy() {
-    this.editor.destroy()
-  },
+  //   this.editor = new Editor({
+  //     editable: true,
+  //     // editable: process.env.NODE_ENV !== 'production',
+  //     // content:
+  //     //   '<p>A Vue.js wrapper component for tiptap to use <code>v-model</code>.</p>',
+  //     // extensions: defaultExtensions(),
+  //     extensions: [
+  //       // …
+  //       // Register the document with tiptap
+  //       // StarterKit,
+  //       StarterKit.configure({
+  //         // The Collaboration extension comes with its own history handling
+  //         history: false,
+  //       }),
+  //       Highlight,
+  //       Typography,
+  //       Document,
+  //       // Paragraph,
+  //       Text,
+  //       Link,
+  //       // Code,
+  //       Collaboration.configure({
+  //         document: ydoc,
+  //       }),
+  //       CollaborationCursor.configure({
+  //         provider: Provider,
+  //         name: 'Cyndi Lauper',
+  //         color: '#f783ac',
+  //       }),
+  //     ],
+  //   })
+  // },
+  // beforeDestroy() {
+  //   this.editor.destroy()
+  // },
 }
 </script>
 

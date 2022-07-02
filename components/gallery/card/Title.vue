@@ -28,7 +28,7 @@
       v-if="(img && supportDarkMode) || lock"
       :class="[
         'inline-block',
-        customImg ? ['w-14', 'h-14', '-m-2'] : ['w-12', 'h-12'],
+        customImg ? ['w-12', 'h-12', '-m-2'] : ['w-10', 'h-10'],
         'm-0',
         'mr-3',
         'rounded-2xl',
@@ -44,7 +44,7 @@
       :alt="name"
       quality="80"
     />
-    <p class="inline mr-2 text-3xl font-bold leading-normal">
+    <p class="inline mr-2 text-2xl font-bold leading-normal">
       {{ name }}
     </p>
     <div

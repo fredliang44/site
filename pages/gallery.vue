@@ -75,7 +75,7 @@ export default {
               customImg: true,
             },
             {
-              name: 'ByteOptimize',
+              name: 'BytePlus Optimize',
               description:
                 'The A/B Testing platform for international market. Providing flexible, end-to-end experimentation tools that help to improve products, apps, websites, and marketing engagement.',
               role: 'PM',
@@ -101,6 +101,21 @@ export default {
                 docs: 'https://www.volcengine.com/docs/6287/65794',
               },
               // lock: true,
+            },
+          ],
+        },
+        {
+          name: 'Company',
+          description: 'My Company',
+          productList: [
+            {
+              name: 'Oasis Networks, Inc.',
+              img: '/img/products/oasis',
+              description:
+                'Oasis Networks, Inc. My first company, aiming to filling the gap between infra & developers.',
+              role: 'Founder',
+              link: 'https://oasis.ac',
+              stage: 'Online',
             },
           ],
         },

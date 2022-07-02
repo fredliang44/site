@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container pb-16 blog">
+  <div class="pt-4">
+    <div class="container pt-16 blog">
       <div class="toc">
         <!-- <ul>
           <li
@@ -19,6 +19,7 @@
           <h1 class="post-title">{{ post.title }}</h1>
           <p class="datetime">{{ $dateFns.format(post.date) }}</p>
           <nuxt-content :document="post" />
+          <WidgetComment />
         </article>
       </div>
     </div>
@@ -30,6 +31,11 @@ export default {
     const post = await $content('blog/' + i18n.locale, params.slug).fetch()
 
     return { post }
+  },
+  head() {
+    return {
+      title: this.post.title + '',
+    }
   },
 }
 </script>
@@ -60,8 +66,6 @@ export default {
   }
 }
 article {
-  margin-top: 40px;
-
   .post-title {
     margin: 0;
   }
