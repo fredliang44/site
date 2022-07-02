@@ -1,7 +1,7 @@
 <template>
   <div class="container py-5">
     <div class="mb-8">
-      <p class="text-4xl font-medium dark:text-white">Tools</p>
+      <p class="text-4xl font-medium">Tools</p>
       <p class="text-lg text-gray-500">The tools stack I use.</p>
     </div>
     <div
@@ -9,7 +9,7 @@
       :key="toolListItemIndex"
       class="mb-10"
     >
-      <p class="mb-4 text-4xl font-medium dark:text-white">
+      <p class="mb-4 text-4xl font-medium">
         {{ toolListItem.name }}
       </p>
       <div class="flex flex-wrap -m-4">
@@ -175,14 +175,14 @@ export default {
             {
               name: 'Google Cloud',
               description:
-                'Most well designed infra and pay by the usage. First choice for project, but a bit expensice.',
+                'Most well designed infra and pay by the usage. First choice for projects, but a bit expensice.',
               img: '/img/tools/googlecloud',
               link: 'https://cloud.google.com/',
             },
             {
               name: 'Azure',
               description:
-                'Azure have best interenet connection to China among the cloud providers. Expensive and the dashboard is hard to use.',
+                "Azure have best interenet connection to China among the cloud providers. But it's expensive and the dashboard is hard to use.",
               img: '/img/tools/azure',
               link: 'https://azure.microsoft.com/',
             },

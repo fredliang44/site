@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container blog">
+    <div class="container pb-16 blog">
       <div class="toc">
         <!-- <ul>
           <li
@@ -13,7 +13,9 @@
         </ul> -->
       </div>
       <div class="blog-post">
-        <article class="mx-auto prose-sm prose sm:prose lg:prose-lg">
+        <article
+          class="mx-auto prose-sm prose prose-neutral sm:prose lg:prose-lg dark:prose-invert prose-blockquote:text-gray-600"
+        >
           <h1 class="post-title">{{ post.title }}</h1>
           <p class="datetime">{{ $dateFns.format(post.date) }}</p>
           <nuxt-content :document="post" />
@@ -34,19 +36,6 @@ export default {
 
 <style lang="less">
 .dark {
-  p,
-  tr,
-  td,
-  ul,
-  li,
-  strong {
-    color: rgba(255, 255, 255, 0.75);
-  }
-
-  blockquote {
-    border-left-color: rgba(255, 255, 255, 0.25);
-  }
-
   .blog-post {
     h1,
     h2,
@@ -67,10 +56,6 @@ export default {
   .blog-post {
     a {
       text-decoration: underline;
-    }
-
-    blockquote {
-      color: #4a5568;
     }
   }
 }

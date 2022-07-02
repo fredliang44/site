@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Body>
+    <Body class="dark:text-white/[.85]">
       <Nuxt />
     </Body>
   </div>

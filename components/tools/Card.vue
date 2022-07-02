@@ -16,7 +16,6 @@
       'border-black[.10]',
       'rounded-3xl',
       'dark:bg-white/[0.08]',
-      'dark:text-white',
       'min-h-28',
     ]"
   >

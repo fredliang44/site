@@ -5,7 +5,7 @@
       :key="productListItemIndex"
       class="mb-10"
     >
-      <p class="mb-1 text-4xl font-medium dark:text-white">
+      <p class="mb-1 text-4xl font-medium">
         {{ productListItem.name }}
       </p>
       <div class="break-normal text-slate-400">

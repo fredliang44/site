@@ -107,7 +107,27 @@ export default {
     '@nuxtjs/axios',
 
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    [
+      '@nuxtjs/pwa',
+      {
+        pwa: {
+          meta: {
+            ogHost: 'https://lzb.im',
+          },
+          manifest: {
+            name: "Fred's Site",
+            short_name: "Fred's Site",
+            lang: 'en',
+            useWebmanifestExtension: false,
+          },
+          workbox: {
+            offline: false,
+            skipWaiting: false,
+            cleanupOutdatedCaches: true,
+          },
+        },
+      },
+    ],
 
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
@@ -174,22 +194,6 @@ export default {
   colorMode: {
     preference: 'dark',
     classSuffix: '',
-  },
-
-  pwa: {
-    meta: {
-      ogHost: 'https://lzb.im',
-    },
-    manifest: {
-      name: "Fred's Site",
-      short_name: "Fred's Site",
-      lang: 'en',
-      useWebmanifestExtension: false,
-    },
-    workbox: {
-      offline: false,
-      cleanupOutdatedCaches: true,
-    },
   },
 
   image: {

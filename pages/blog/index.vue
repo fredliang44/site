@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container blog">
+    <div class="container pb-16 blog">
       <div class="post-list">
         <div v-for="post of posts" :key="post.slug" class="post-item">
           <NuxtLink

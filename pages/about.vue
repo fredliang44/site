@@ -4,7 +4,14 @@
       <div class="container" style="">
         <client-only>
           <article
-            class="mx-auto prose-sm prose sm:prose lg:prose-lg dark:prose-invert"
+            :class="[
+              'mx-auto',
+              'prose-sm',
+              'prose',
+              'sm:prose',
+              'lg:prose-lg',
+              'dark:prose-invert',
+            ]"
           >
             <bubble-menu
               v-if="editor"

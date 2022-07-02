@@ -19,7 +19,6 @@
       'border-black[.10]',
       'rounded-3xl',
       lock ? 'dark:bg-white/[0.06]' : 'dark:bg-white/[0.08]',
-      'dark:text-white',
       'transition',
       lock ? '' : 'hover:dark:bg-white/[0.10]',
       'min-h-28',
@@ -87,8 +86,8 @@
                 ]"
               >
                 <a
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  :target="link ? '_blank' : null"
+                  :rel="link ? 'noopener noreferrer' : null"
                   :href="extend.docs"
                 >
                   <div>
@@ -148,7 +147,7 @@ export default {
     },
     link: {
       type: String,
-      default: './',
+      default: null,
     },
     role: {
       type: String,

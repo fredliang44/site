@@ -1,55 +1,71 @@
 <template>
   <div class="nav bg-white/50 dark:bg-black/50">
-    <div class="container flex dark:text-white flex-nowrap" style="">
+    <div class="container flex h-full flex-nowrap" style="">
       <ul
-        class="my-1 -ml-2 overflow-x-auto whitespace-nowrap nav-list"
-        style=""
+        class="flex items-center h-full -ml-2 overflow-x-auto whitespace-nowrap nav-list"
       >
         <li
-          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+          v-for="navItem in navList"
+          :key="navItem.index"
+          :class="[
+            'flex',
+            'items-center',
+            'h-full',
+            'mr-1',
+            'text-center',
+            $route.path === navItem.path
+              ? 'shadow-[inset_0px_-2px_0px] dark:shadow-white/70 shadow-black/60'
+              : '',
+          ]"
         >
-          <nuxt-link :to="localePath('/')">{{ $t('home') }}</nuxt-link>
-        </li>
-        <li
-          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
-        >
-          <nuxt-link :to="localePath('/blog')">{{ $t('blog') }}</nuxt-link>
-        </li>
-        <li
-          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
-        >
-          <nuxt-link :to="localePath('/gallery')">{{
-            $t('gallery')
-          }}</nuxt-link>
-        </li>
-        <li
-          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
-        >
-          <nuxt-link :to="localePath('/tools')">{{ $t('tools') }}</nuxt-link>
-        </li>
-        <li
-          class="px-2 py-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
-        >
-          <nuxt-link :to="localePath('/about')">{{ $t('about') }}</nuxt-link>
+          <nuxt-link
+            :class="[
+              'px-2',
+              'py-0.5',
+              'transition',
+              'duration-300',
+              'rounded-md',
+              'dark:hover:bg-gray-400/30',
+              'hover:bg-gray-500/10',
+              'dark:active:bg-white/50',
+              'active:bg-black/20',
+            ]"
+            :to="localePath(navItem.path)"
+            >{{ $t(navItem.translateKey) }}</nuxt-link
+          >
         </li>
       </ul>
 
       <div
-        class="justify-end p-1 ml-auto transition duration-300 rounded-md mode-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        class="flex items-center justify-end ml-auto mode-switcher switcher"
         @click="switchMode"
       >
-        <svg class="icon" aria-hidden="true">
-          <use v-if="$colorMode.value === 'light'" xlink:href="#icon-sun"></use>
-          <use v-if="$colorMode.value === 'dark'" xlink:href="#icon-moon"></use>
-        </svg>
+        <div
+          class="p-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
+          <svg class="icon dark:text-white/[.85]" aria-hidden="true">
+            <use
+              v-if="$colorMode.value === 'light'"
+              xlink:href="#icon-sun"
+            ></use>
+            <use
+              v-if="$colorMode.value === 'dark'"
+              xlink:href="#icon-moon"
+            ></use>
+          </svg>
+        </div>
       </div>
       <nuxt-link
-        class="justify-end p-1 transition duration-300 rounded-md lang-switcher switcher dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        class="flex items-center justify-end lang-switcher switcher"
         :to="locale == 'en' ? switchLocalePath('zh') : switchLocalePath('en')"
       >
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-in"></use>
-        </svg>
+        <div
+          class="p-1 transition duration-300 rounded-md dark:hover:bg-gray-400/20 hover:bg-gray-500/10"
+        >
+          <svg class="icon dark:text-white/[.85]" aria-hidden="true">
+            <use xlink:href="#icon-in"></use>
+          </svg>
+        </div>
       </nuxt-link>
     </div>
   </div>
@@ -57,6 +73,32 @@
 
 <script>
 export default {
+  data() {
+    return {
+      navList: [
+        {
+          path: '/',
+          translateKey: 'home',
+        },
+        {
+          path: '/blog',
+          translateKey: 'blog',
+        },
+        {
+          path: '/gallery',
+          translateKey: 'gallery',
+        },
+        {
+          path: '/tools',
+          translateKey: 'tools',
+        },
+        {
+          path: '/about',
+          translateKey: 'about',
+        },
+      ],
+    }
+  },
   computed: {
     locale() {
       return this.$i18n.locale
@@ -80,15 +122,7 @@ export default {
   .nav {
     // background-color: rgba(27, 27, 27, 0.5) !important;
     border-bottom: solid 1px rgba(162, 162, 162, 0.2);
-    ul > li > a {
-      color: white;
-    }
 
-    .switcher {
-      .icon {
-        color: white;
-      }
-    }
     .lang-switcher {
       &:hover .icon {
         color: #008cff;
@@ -129,7 +163,6 @@ export default {
     cursor: pointer;
 
     .icon {
-      color: black;
       margin: 4px;
       width: 18px;
       height: 18px;
@@ -146,16 +179,9 @@ export default {
   }
   ul {
     padding: 0;
-    display: inline-block;
     li {
       list-style: none;
       font-size: 16px;
-      display: inline;
-      // margin-right: 16px;
-      a {
-        // text-decoration: none;
-        // color: black;
-      }
     }
   }
 }

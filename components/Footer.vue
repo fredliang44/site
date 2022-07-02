@@ -1,5 +1,5 @@
 <template>
-  <div id="footer" class="dark:text-white/75">
+  <div id="footer">
     <!-- <div class="shadow"></div> -->
     <div class="footer_info">
       <p class="author">

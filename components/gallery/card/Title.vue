@@ -82,7 +82,6 @@
         'px-4',
         'py-1',
         'rounded-full',
-        'text-white',
         'font-semibold',
         stage === 'Alpha' ? 'bg-sky-500/90' : '',
         stage === 'WIP' ? 'bg-amber-500/90' : '',
