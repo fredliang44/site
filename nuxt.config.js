@@ -65,6 +65,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+
     // '@nuxt/postcss8',
 
     // '@nuxtjs/tailwindcss',
@@ -110,21 +111,30 @@ export default {
     [
       '@nuxtjs/pwa',
       {
-        pwa: {
-          meta: {
-            ogHost: 'https://lzb.im',
-          },
-          manifest: {
-            name: "Fred's Site",
-            short_name: "Fred's Site",
-            lang: 'en',
-            useWebmanifestExtension: false,
-          },
-          workbox: {
-            offline: false,
-            skipWaiting: false,
-            cleanupOutdatedCaches: true,
-          },
+        meta: {
+          ogHost: 'https://lzb.im',
+        },
+        manifest: {
+          name: "Fred's Site",
+          short_name: "Fred's Site",
+          lang: 'en',
+          useWebmanifestExtension: false,
+          background_color: 'black',
+        },
+        workbox: {
+          offline: false,
+          skipWaiting: false,
+          cleanupOutdatedCaches: true,
+          runtimeCaching: [
+            {
+              // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
+              urlPattern: '/_nuxt/.*',
+              // Defaults to `NetworkFirst` if omitted
+              handler: 'StaleWhileRevalidate',
+              // Defaults to `GET` if omitted
+              // method: 'GET'
+            },
+          ],
         },
       },
     ],
@@ -177,10 +187,10 @@ export default {
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {
-    // liveEdit: false,
-    // markdown: {
-    //   remarkPlugins: ['remark-slug'],
-    // },
+    liveEdit: false,
+    markdown: {
+      remarkPlugins: ['remark-slug'],
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

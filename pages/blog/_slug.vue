@@ -16,9 +16,17 @@
         <article
           class="mx-auto prose-sm prose prose-neutral sm:prose lg:prose-lg dark:prose-invert prose-blockquote:text-gray-600"
         >
-          <h1 class="post-title">{{ post.title }}</h1>
-          <p class="datetime">{{ $dateFns.format(post.date) }}</p>
-          <nuxt-content :document="post" />
+          <div
+            class="pb-4 text-lg border-b border-gray-100 dark:border-gray-800"
+          >
+            <h1 class="post-title" style="margin-bottom: 0">
+              {{ post.title }}
+            </h1>
+            <p v-if="'date' in post" class="mt-2 datetime">
+              {{ $dateFns.format(post.date) }}
+            </p>
+          </div>
+          <nuxt-content class="-mt-6" :document="post" />
           <WidgetComment />
         </article>
       </div>
@@ -70,7 +78,7 @@ article {
     margin: 0;
   }
   .datetime {
-    margin: 0;
+    margin: 0.2rem 0 0 0;
     opacity: 0.6;
   }
 }
