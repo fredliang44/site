@@ -14,7 +14,18 @@
       </div>
       <div class="blog-post">
         <article
-          class="mx-auto prose-sm prose prose-neutral sm:prose lg:prose-lg dark:prose-invert prose-blockquote:text-gray-600"
+          :class="[
+            'prose-code:dark:background-gray-900',
+            'mx-auto',
+            'prose-sm',
+            'prose',
+            'prose-neutral',
+            'sm:prose',
+            'lg:prose-lg',
+
+            // darkmode
+            'dark:prose-invert',
+          ]"
         >
           <div
             class="pb-4 text-lg border-b border-gray-100 dark:border-gray-800"
@@ -42,7 +53,24 @@ export default {
   },
   head() {
     return {
-      title: this.post.title + '',
+      title: this.post.title + " | Fred's Site",
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.post.title + " | Fred's Site",
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://lzb.im' + this.post.image,
+        },
+      ],
     }
   },
 }

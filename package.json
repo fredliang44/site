@@ -56,10 +56,12 @@
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
+    "@nuxtjs/svg": "^0.4.0",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "@vue/composition-api": "^1.7.0",
     "autoprefixer": "^10.4.7",
     "babel-eslint": "^10.1.0",
+    "clipboard": "^2.0.11",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": "^1.0.0",
@@ -69,6 +71,7 @@
     "nuxt": "^2.15.8",
     "postcss": "^8.4.14",
     "prettier": "^2.1.1",
+    "prismjs": "^1.28.0",
     "three": "^0.125.0"
   }
 }

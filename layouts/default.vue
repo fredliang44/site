@@ -20,11 +20,11 @@ export default {
       class: 'dark:bg-black bg-white transition',
     },
     script: [
-      {
-        innerHTML: `if (localStorage.getItem('nuxt-color-mode')) document.documentElement.setAttribute("data-theme", localStorage.theme);`,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
+      // {
+      //   innerHTML: `if (localStorage.getItem('nuxt-color-mode')) document.documentElement.setAttribute("data-theme", localStorage.theme);`,
+      //   type: 'text/javascript',
+      //   charset: 'utf-8',
+      // },
     ],
   },
 }
@@ -105,13 +105,17 @@ h6 {
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('~assets/font/ProductSans-Bold.woff2');
-  src: url('~assets/font/ProductSans-Bold.eot?#iefix')
+  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff2');
+  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.eot?#iefix')
       format('embedded-opentype'),
-    url('~assets/font/ProductSans-Bold.woff2') format('woff2'),
-    url('~assets/font/ProductSans-Bold.woff') format('woff'),
-    url('~assets/font/ProductSans-Bold.ttf') format('truetype'),
-    url('~assets/font/ProductSans-Bold.svg#ProductSans-Bold') format('svg');
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff2')
+      format('woff2'),
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff')
+      format('woff'),
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.ttf')
+      format('truetype'),
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.svg#ProductSans-Bold')
+      format('svg');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -119,16 +123,30 @@ h6 {
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('~assets/font/ProductSans-Regular.woff2');
-  src: local('Product Sans') url('~assets/font/ProductSans-Regular.eot?#iefix')
+  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.woff2');
+  src: local('Product Sans')
+      url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.eot?#iefix')
       format('embedded-opentype'),
-    url('~assets/font/ProductSans-Regular.woff2') format('woff2'),
-    url('~assets/font/ProductSans-Regular.woff') format('woff'),
-    url('~assets/font/ProductSans-Regular.ttf') format('truetype'),
-    url('~assets/font/ProductSans-Regular.svg#ProductSans-Regular')
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.woff2')
+      format('woff2'),
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.woff')
+      format('woff'),
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.ttf')
+      format('truetype'),
+    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.svg#ProductSans-Regular')
       format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('https://storage.fredliang.cn/fonts/inter/Inter.var.woff2')
+    format('woff2');
 }
 </style>

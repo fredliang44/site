@@ -55,6 +55,7 @@ export default {
     '@/plugins/anime',
     '@/plugins/gasp',
     '@/plugins/iconfont.client.js',
+    '@/plugins/prism',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -65,11 +66,11 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-
     // '@nuxt/postcss8',
+    '@nuxtjs/svg',
 
     // '@nuxtjs/tailwindcss',
-    '@nuxtjs/tailwindcss',
+  
 
     // https://github.com/nuxt/image
     '@nuxt/image',
