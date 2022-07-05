@@ -68,9 +68,7 @@ export default {
   buildModules: [
     // '@nuxt/postcss8',
     '@nuxtjs/svg',
-
     // '@nuxtjs/tailwindcss',
-  
 
     // https://github.com/nuxt/image
     '@nuxt/image',

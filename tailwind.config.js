@@ -39,23 +39,24 @@ module.exports = {
               border: 'solid 1px',
               borderColor: 'var(--tw-prose-code-border)',
               backgroundColor: 'var(--tw-prose-code-bg)',
-              // borderColor: colors.gray[200],
-              // backgroundColor: colors.gray[100],
               borderRadius: rem(8),
               transition:
                 'background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
             },
             '--tw-prose-code-border': colors.gray[200],
             '--tw-prose-code-bg': colors.gray[100],
-
+            'pre[class*=language-] > code[class*=language-]': {
+              backgroundColor: 'transparent',
+              borderWidth: 0,
+              borderRadius: 0,
+              padding: 0,
+            },
             'code::before': {
               content: 'none',
             },
             'code::after': {
               content: 'none',
             },
-            // color: theme('colors.gray.800'),
-            // ...
           },
         },
         invert: {

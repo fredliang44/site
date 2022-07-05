@@ -10,12 +10,42 @@
     ]"
     :style="fullScreen ? 'height: ' + imageHeight + 'px' : ''"
   >
-    <component
-      :is="src.split('.').pop() == 'svg' ? 'object' : 'img'"
-      :id="id"
-      :data="
-        src.split('.').pop() == 'svg'
-          ? !supportDarkMode
+    <div
+      :class="[
+        fullScreen
+          ? [
+              'md:absolute',
+              'md:left-0',
+              'md:right-0',
+              'md:w-full',
+              'overflow-scroll',
+
+              'my-0',
+            ]
+          : '',
+      ]"
+    >
+      <component
+        :is="src.split('.').pop() == 'svg' ? 'object' : 'img'"
+        :id="id"
+        :data="
+          src.split('.').pop() == 'svg'
+            ? !supportDarkMode
+              ? src
+              : [
+                  src
+                    .split('.')
+                    .slice(0, src.split('.').length - 1)
+                    .join('.'),
+                  $colorMode.value,
+                  src.split('.').pop(),
+                ].join('.')
+            : null
+        "
+        :type="src.split('.').pop() == 'svg' ? 'image/svg+xml' : null"
+        :class="['blog-image', 'md:max-w-[1280px]', 'mx-auto']"
+        :src="
+          !supportDarkMode
             ? src
             : [
                 src
@@ -25,27 +55,10 @@
                 $colorMode.value,
                 src.split('.').pop(),
               ].join('.')
-          : null
-      "
-      :type="src.split('.').pop() == 'svg' ? 'image/svg+xml' : null"
-      :class="[
-        fullScreen ? ['blog-img', 'absolute', 'left-0', 'my-0', 'w-full'] : '',
-        'blog-image',
-      ]"
-      :src="
-        !supportDarkMode
-          ? src
-          : [
-              src
-                .split('.')
-                .slice(0, src.split('.').length - 1)
-                .join('.'),
-              $colorMode.value,
-              src.split('.').pop(),
-            ].join('.')
-      "
-      :alt="alt ? alt : null"
-    />
+        "
+        :alt="alt ? alt : null"
+      />
+    </div>
   </div>
 </template>
 
@@ -134,7 +147,7 @@ export default {
 
 <style>
 .blog-image {
-  -webkit-backface-visibility: initial !important;
-  -webkit-transform-origin: 50% 50%;
+  /* -webkit-backface-visibility: initial !important;
+  -webkit-transform-origin: 50% 50%; */
 }
 </style>

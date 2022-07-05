@@ -1,18 +1,36 @@
 <template>
   <div class="pt-4">
-    <div class="container pt-16 blog">
-      <div class="toc">
-        <!-- <ul>
-          <li
-            v-for="link of post.toc"
-            :key="link.id"
-            :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
-          >
-            <a :href="'#' + link.id">{{ link.text }}</a>
-          </li>
-        </ul> -->
-      </div>
-      <div class="blog-post">
+    <div class="flex pt-16 blog">
+      <aside class="order-1 w-0 grow"></aside>
+      <aside class="order-3 w-0 grow">
+        <div
+          id="toc"
+          class="fixed z-10 hidden py-4 ml-8 transition-opacity duration-300 ease-in-out rounded-lg backdrop-blur-lg xl:block"
+        >
+          <div class="pl-4 border-l border-gray-200 dark:border-gray-800">
+            <p class="pb-2 text-xl font-bold text-gray-600 dark:text-gray-400">
+              CATEGORY
+            </p>
+            <ul class="">
+              <li
+                v-for="link of post.toc"
+                :key="link.id"
+                :class="[
+                  'w-56',
+                  'overflow-hidden',
+                  'whitespace-nowrap',
+                  'text-ellipsis',
+                  link.depth === 2 ? ['toc2', 'pl-0'] : '',
+                  link.depth === 3 ? ['toc3', 'pl-3'] : '',
+                ]"
+              >
+                <a :href="'#' + link.id" class="">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="order-2 blog-post grow-0">
         <article
           :class="[
             'prose-code:dark:background-gray-900',
@@ -50,6 +68,45 @@ export default {
     const post = await $content('blog', params.slug + '.' + i18n.locale).fetch()
 
     return { post }
+  },
+  created() {
+    if (process.client) {
+      // eslint-disable-next-line nuxt/no-globals-in-created
+      window.addEventListener('scroll', this.handleScroll)
+    }
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+
+  methods: {
+    handleScroll(event) {
+      const imgs = document.getElementsByClassName('blog-image')
+      const tocRect = document.getElementById('toc').getBoundingClientRect()
+      // .getBoundingClientRect()
+      // if x axis is reached
+      if (imgs.length > 0) {
+        let hitted = false
+        Array.prototype.forEach.call(imgs, (img) => {
+          const imgRect = img.getBoundingClientRect()
+          if (imgRect.right > tocRect.left) {
+            // if image top is above toc botton
+            if (imgRect.top < tocRect.bottom && imgRect.bottom > tocRect.top) {
+              hitted = true
+            }
+          }
+        })
+
+        if (hitted) {
+          document.getElementById('toc').style.opacity = '0'
+          // console.log(document.getElementById('toc').style.opacity)
+        } else if (document.getElementById('toc').style.opacity === '0') {
+          document.getElementById('toc').style.opacity = '1'
+        }
+      }
+
+      // Any code to be executed when the window is scrolled
+    },
   },
   head() {
     return {
