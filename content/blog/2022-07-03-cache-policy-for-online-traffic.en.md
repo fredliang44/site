@@ -7,7 +7,7 @@ tags: ['let.sh', 'Load Balancer']
 image: '/img/blog/cache-policy-for-online-traffic/cover.jpg'
 ---
 
-## 1. How cache works among browser, CDN, and server
+## How cache works among browser, CDN, and server
 
 I'm working on [let.sh](https://let.sh) load balancer recently, and to provide the best performance and reduce the costs for frontend and backend projects, I've dug a lot of documentation and materials to design the cache policy of let.sh for online traffic.
 
@@ -19,7 +19,7 @@ If you dig into the details of the image, you can see let.sh server responds to 
 
 So it seems not cache anyting right? There is still 2 ways to cache the response: for files(like `/index.html`) likely to be changed in the future, I will introduce `Etag` header first. As the files not likely to be changed in the future, I will introduce `Cache-Control` header next.
 
-### 1.1 HTTP Etag
+### HTTP Etag
 
 Now the problem we are facing for the files like `/index.html` is the file might be changed in the future, and the payload for the requests might be large. We can't reduce the requests because we have to letting browser check whether the file have been updated. So what about reducing the size of the payload?
 
@@ -47,11 +47,7 @@ A strongly validating `ETag` match indicates that the content of the two resourc
 
 A weakly validating `ETag` match only indicates that the two representations are semantically equivalent, meaning that for practical purposes they are interchangeable and that cached copies can be used. However, the resource representations are not necessarily byte-for-byte identical, and thus weak `ETag`s are not suitable for byte-range requests. Weak `ETag`s may be useful for cases in which strong `ETag`s are impractical for a Web server to generate, such as with dynamically generated content.
 
-### 1.2 Cache-Control
-
-#### test
-
-#### asdas
+### Cache-Control
 
 > Source: [MDN Cache-Control Docs](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Cache-Control)
 
@@ -76,10 +72,20 @@ Cache Control can be configured in request & response, the table below show the 
 | -              | stale-while-revalidate |
 | stale-if-error | stale-if-error         |
 
-| Param      | Description                               |
-| ---------- | ----------------------------------------- |
-| `public`   | Cache the response for `public` (default) |
-| `private`  | Cache the response for `private`          |
-| `no-cache` | Cache the response for `no-cache`         |
+for different `Cache-Control` have different logic for browser and load balancer, here is a brief summary for different header
+
+| Param                     | Description                                                                                        | browser                           | CDN                               |
+| ------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------- |
+| `public`                  | resource can be cache anywhere(including shared for different users)                               | cache                             | cache                             |
+| `private`                 | can be cached for single user                                                                      | cache                             | no-cache                          |
+| `no-cache`                | should revalidate each request to server(e.g. through `Etag` header)                               | cache(need-revalidate)            | cache(need-revalidate)            |
+| `no-store`                | store nothing neither browser or CDN can cache response                                            | no-cache                          | no-cache                          |
+| `stale-while-revalidate`= | cache can be used in certain time range if revalidate request in the background                    | cache(refetch asynchronous)       | cache(refetch asynchronous)       |
+| `stale-if-error`          | cache can reuse a cached response when the server responds with an error                           | cache(refetch when request error) | cache(refetch when request error) |
+| `must-revalidate`         | cache can reuse a cached response, must revalidate request in the background once cache is outated | cache(refetch asynchronous)       | cache(refetch asynchronous)       |
+| `proxy-revalidate`        | same as `must-revalidate`, but only for proxy servers                                              | /                                 | cache(refetch asynchronous)       |
+| `immutable`               | resource will not change, will not revalidate the request                                          | cache (will not request again)    | cache                             |
+
+### Service Worker(JavaScript)
 
 ## Design the cache policy for [let.sh](https://let.sh)

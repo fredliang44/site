@@ -5,6 +5,13 @@
       'ease-out',
       'transition-opacity',
       'duration-700',
+      'w-screen',
+      'overflow-hidden',
+      'translate-x-[-36px]',
+      'md:transform-none',
+      'md:w-full',
+      //       width: 100vw;
+      // transform: translateX(-36px);
       fullScreen ? [] : [],
       showImage ? 'opacity-100' : 'opacity-0',
     ]"

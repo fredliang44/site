@@ -1,11 +1,11 @@
 <template>
   <div class="pt-4">
-    <div class="flex pt-16 blog">
-      <aside class="order-1 w-0 grow"></aside>
-      <aside class="order-3 w-0 grow">
+    <div class="flex max-w-[100%] pt-16 blog">
+      <aside class="order-1 hidden w-0 grow sm:inline-block"></aside>
+      <aside class="order-3 hidden w-0 grow sm:inline-block">
         <div
           id="toc"
-          class="fixed z-10 hidden py-4 ml-8 transition-opacity duration-300 ease-in-out rounded-lg backdrop-blur-lg xl:block"
+          class="fixed z-10 hidden py-4 ml-8 transition-opacity duration-300 ease-in-out rounded-lg xl:inline-block backdrop-blur-lg"
         >
           <div class="pl-4 border-l border-gray-200 dark:border-gray-800">
             <p class="pb-2 text-xl font-bold text-gray-600 dark:text-gray-400">
@@ -30,7 +30,7 @@
           </div>
         </div>
       </aside>
-      <div class="order-2 blog-post grow-0">
+      <div class="order-2 blog-post grow-0 max-w-[100%] px-[36px] lg:px-0">
         <article
           :class="[
             'prose-code:dark:background-gray-900',
@@ -41,6 +41,12 @@
             'sm:prose',
             'lg:prose-lg',
 
+            // handle header offset
+            'prose-h2:first-of-type:pt-16',
+            'prose-h2:pt-12',
+            'prose-h2:!-mt-10',
+            'prose-h3:pt-12',
+            'prose-h3:!-mt-10',
             // darkmode
             'dark:prose-invert',
           ]"
@@ -182,5 +188,18 @@ img {
   padding-right: 36px;
   max-width: 1200px;
   width: 100%;
+}
+
+:where(tbody td):not(:where([class~='not-prose'] *)) {
+  padding-top: 0.75em;
+  padding-right: 0.75em;
+  padding-bottom: 0.75em;
+  padding-left: 0.75em;
+}
+:where(tbody td:last-child):not(:where([class~='not-prose'] *)) {
+  padding-right: 0;
+}
+:where(tbody td:first-child):not(:where([class~='not-prose'] *)) {
+  padding-left: 0;
 }
 </style>

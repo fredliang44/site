@@ -27,6 +27,26 @@ const loadScripts = function () {
   ]
   return scripts
 }
+const createSitemapRoutes = async () => {
+  const routes = []
+  const { $content } = require('@nuxt/content')
+  let posts = null
+  if (posts === null || posts.length === 0)
+    posts = await $content('blog').fetch()
+  for (const post of posts) {
+    if (post.slug.split('.').length > 1) {
+      // en
+      if (post.slug.split('.')[1] === 'en') {
+        routes.push(`blog/${post.slug.split('.')[0]}`)
+      }
+      // zh
+      if (post.slug.split('.')[1] === 'zh') {
+        routes.push(`zh/blog/${post.slug.split('.')[0]}`)
+      }
+    }
+  }
+  return routes
+}
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -241,7 +261,7 @@ export default {
   sitemap: {
     hostname: 'https://lzb.im',
     gzip: true,
-    // routes: createSitemapRoutes,
+    routes: createSitemapRoutes,
   },
 
   i18n: {

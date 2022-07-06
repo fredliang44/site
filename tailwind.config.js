@@ -11,6 +11,7 @@ const round = (num) =>
     .replace(/(\.[0-9]+?)0+$/, '$1')
     .replace(/\.0$/, '')
 const rem = (px) => `${round(px / 16)}rem`
+const em = (px, base) => `${round(px / base)}em`
 module.exports = {
   // darkMode: 'class',
   content: [
@@ -32,16 +33,18 @@ module.exports = {
             'blockquote p:last-of-type::after': {
               content: 'none',
             },
-            code: {
+            ':not(pre) > code': {
               color: 'var(--tw-prose-code)',
-              fontWeight: '400',
               padding: '0.125rem 0.25rem',
               border: 'solid 1px',
               borderColor: 'var(--tw-prose-code-border)',
               backgroundColor: 'var(--tw-prose-code-bg)',
               borderRadius: rem(8),
               transition:
-                'background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+                'background-color 0.2s ease-in-out, border-color 0.2s ease-in-out',
+            },
+            code: {
+              fontWeight: '400',
             },
             '--tw-prose-code-border': colors.gray[200],
             '--tw-prose-code-bg': colors.gray[100],
@@ -56,6 +59,18 @@ module.exports = {
             },
             'code::after': {
               content: 'none',
+            },
+            'tbody td, tfoot td': {
+              paddingTop: em(8, 12),
+              paddingRight: em(12, 12),
+              paddingBottom: em(8, 12),
+              paddingLeft: em(12, 12),
+            },
+            'tbody td:first-child, tfoot td:first-child': {
+              paddingLeft: '0',
+            },
+            'tbody td:last-child, tfoot td:last-child': {
+              paddingRight: '0',
             },
           },
         },
