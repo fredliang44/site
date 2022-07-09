@@ -47,6 +47,8 @@
             'prose-h2:!-mt-10',
             'prose-h3:pt-12',
             'prose-h3:!-mt-10',
+            'prose-h4:pt-12',
+            'prose-h4:!-mt-10',
             // darkmode
             'dark:prose-invert',
           ]"
@@ -190,16 +192,47 @@ img {
   width: 100%;
 }
 
-:where(tbody td):not(:where([class~='not-prose'] *)) {
+:where(thead):not(:where([class~='not-prose'] *)),
+:where(th):not(:where([class~='not-prose'] *)) {
+  padding-right: 0.75em;
+  padding-bottom: 0.75em;
+  padding-left: 0.75em;
+}
+
+:where(td):not(:where([class~='not-prose'] *)),
+:where(tdbody):not(:where([class~='not-prose'] *)) {
+  vertical-align: baseline;
   padding-top: 0.75em;
   padding-right: 0.75em;
   padding-bottom: 0.75em;
   padding-left: 0.75em;
 }
-:where(tbody td:last-child):not(:where([class~='not-prose'] *)) {
+:where(th:last-child):not(:where([class~='not-prose'] *)),
+:where(td:last-child):not(:where([class~='not-prose'] *)) {
   padding-right: 0;
 }
-:where(tbody td:first-child):not(:where([class~='not-prose'] *)) {
+:where(th:first-child):not(:where([class~='not-prose'] *)),
+:where(td:first-child):not(:where([class~='not-prose'] *)) {
   padding-left: 0;
+}
+:where(tr):not(:where([class~='not-prose'] *)),
+:where(tdbody):not(:where([class~='not-prose'] *)) {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--tw-prose-td-borders);
+}
+
+.icon.icon-link {
+  @apply absolute  opacity-0 h-4 -ml-6 w-10 bg-no-repeat;
+  background-image: url('/img/link.svg');
+  margin-top: 6px;
+  width: 18px;
+  height: 18px;
+}
+
+h2:hover .icon.icon-link,
+h3:hover .icon.icon-link,
+h4:hover .icon.icon-link,
+h5:hover .icon.icon-link {
+  @apply opacity-100;
 }
 </style>
