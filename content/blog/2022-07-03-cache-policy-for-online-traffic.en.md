@@ -9,7 +9,7 @@ image: '/img/blog/cache-policy-for-online-traffic/cover.jpg'
 
 ## How cache works among browser, CDN, and server
 
-I'm working on [let.sh](https://let.sh) load balancer recently, and to provide the best performance and reduce the costs for frontend and backend projects, I've dug a lot of documentation and materials to design the cache policy of let.sh for online traffic.
+I'm working on [let.sh](https://let.sh) load balancer recently, and in order to provide the best performance and reduce the costs for frontend and backend projects, I've dug a lot of documentation and materials to design the cache policy of let.sh for online traffic.
 
 <blog-image src="/img/blog/cache-policy-for-online-traffic/first-time-access.svg" support-dark-mode full-screen></blog-image>
 
@@ -101,18 +101,56 @@ Lets deep dive in few of them, first take `public` for an example:
 
 <blog-image src="/img/blog/cache-policy-for-online-traffic/cache-control-private.svg" support-dark-mode full-screen></blog-image>
 
+As digram above, the main difference between `public` and `private` is that `private` will not cache the resource content inside load balancer(or cached for different browsers(users) rather than shared cache), but `public` will cache the same resource for different browsers(users).
+
 ### Service Worker(JavaScript)
 
-Service Worker is a JavaScript file that runs in the background of a web page. It is used to cache resources and respond to fetch events, which is very different from pervious 2 cache solution.
+Service Worker is a very powerful tool for developer to control cache policy for their web pages through JavaScript codes. The service worker file that runs in the background of a web page. It is used to cache resources and respond to fetch events, which is very different from pervious 2 cache solution.
+
+I'll only make a brief introduction for the service beacuse the service workers are defined by the web site developer rather than the hosting platform. And the service worker itself can not just control cache policy for the web page, it also can control the behavior of the web page(like receiving updates of geolocation, background data synchronization, etc).
+
+As for cache, you can regard service worker implements a proxy for all of the requests inside your webside. So the service worker can cache the resources and respond to the requests.
 
 ## Design the cache policy for [let.sh](https://let.sh)
 
 ### Route based cache policy
 
+```bash
+git ls-files | tree --fromfile
+.
+├── asset-manifest.json
+├── favicon.ico
+├── index.html
+├── logo192.png
+├── logo512.png
+├── manifest.json
+├── precache-manifest.c0a7361b86cadc203094cedbf871e8b1.js
+├── robots.txt
+├── service-worker.js
+└── static
+    ├── css
+    │   ├── main.d1b05096.chunk.css
+    │   └── main.d1b05096.chunk.css.map
+    ├── js
+    │   ├── 2.d9fa3a5e.chunk.js
+    │   ├── 2.d9fa3a5e.chunk.js.LICENSE.txt
+    │   ├── 2.d9fa3a5e.chunk.js.map
+    │   ├── main.5d21aa1a.chunk.js
+    │   ├── main.5d21aa1a.chunk.js.map
+    │   ├── runtime-main.e9912549.js
+    │   └── runtime-main.e9912549.js.map
+    └── media
+        └── logo.5d5d9eef.svg
+
+4 directories, 19 files
+
+```
+
 ### File Type based cache policy
 
 ## Reference
 
+> let.sh: [let.sh](https://let.sh)<br/>
 > Etag: <https://developer.mozilla.org/docs/Web/HTTP/Headers/ETag><br/>
 > Cache-Control: <https://developer.mozilla.org/docs/Web/HTTP/Headers/Cache-Control><br/>
 > Service Worker: <https://developer.mozilla.org/docs/Web/API/Service_Worker_API>

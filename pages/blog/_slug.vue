@@ -71,6 +71,7 @@
   </div>
 </template>
 <script>
+import Prism from '~/plugins/prism'
 export default {
   async asyncData({ $content, params, i18n }) {
     const post = await $content('blog', params.slug + '.' + i18n.locale).fetch()
@@ -86,7 +87,9 @@ export default {
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
   },
-
+  mounted() {
+    Prism.highlightAll()
+  },
   methods: {
     handleScroll(event) {
       const imgs = document.getElementsByClassName('blog-image')
@@ -222,9 +225,9 @@ img {
 }
 
 .icon.icon-link {
-  @apply absolute  opacity-0 h-4 -ml-6 w-10 bg-no-repeat;
+  @apply absolute opacity-0 h-4 -ml-6 w-10 bg-no-repeat;
   background-image: url('/img/link.svg');
-  margin-top: 6px;
+  margin-top: 8px;
   width: 18px;
   height: 18px;
 }

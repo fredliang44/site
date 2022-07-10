@@ -138,17 +138,17 @@ export default {
           name: "Fred's Site",
           short_name: "Fred's Site",
           lang: 'en',
+          display: 'standalone',
           useWebmanifestExtension: false,
           background_color: 'black',
         },
         workbox: {
           offline: false,
-          skipWaiting: false,
           cleanupOutdatedCaches: true,
           runtimeCaching: [
             {
               // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
-              urlPattern: '/_nuxt/.*',
+              urlPattern: 'https://storage.fredliang.cn/.*',
               // Defaults to `NetworkFirst` if omitted
               handler: 'StaleWhileRevalidate',
               // Defaults to `GET` if omitted

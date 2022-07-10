@@ -102,20 +102,22 @@ export default {
     if (!this.fullScreen) {
       this.showImage = true
     }
+    let resizeObserver = null
     this.$nextTick(() => {
       const img = document.getElementById(this._uid)
+      if (resizeObserver === null) {
+        resizeObserver = new ResizeObserver(function () {
+          bindthis.imageHeight = img.clientHeight
+          bindthis.showImage = true
+        })
+      }
 
-      const resizeObserver = new ResizeObserver(function () {
-        bindthis.imageHeight = img.clientHeight
-        bindthis.showImage = true
-      })
-
-      resizeObserver.observe(img)
-
-      img.addEventListener('load', function () {
-        const svgDoc = img.contentDocument
-        const style = document.createElement('style')
-        style.textContent = `
+      if (img) {
+        resizeObserver.observe(img)
+        img.addEventListener('load', function () {
+          const svgDoc = img.contentDocument
+          const style = document.createElement('style')
+          style.textContent = `
 @font-face {
   font-family: 'Inter';
   font-weight: 100 900;
@@ -145,8 +147,9 @@ export default {
   font-weight: normal;
   src: local('Monaco'), url('https://storage.fredliang.cn/fonts/monaco/Monaco.woff') format('woff');
 }` // add whatever you need here
-        svgDoc.childNodes[0].prepend(style)
-      })
+          svgDoc.childNodes[0].prepend(style)
+        })
+      }
     })
   },
 }
