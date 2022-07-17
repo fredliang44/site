@@ -18,7 +18,7 @@ image: '/img/board-unsplash.jpg'
 
 ## 借助金融科技，垂直 SaaS 服务的市场比大多数人意识到的要大
 
-![](https://storage.fredliang.cn/web/Why-Fintech-is-the-Next-Wave-in-Monetizing-Vertical-SaaS-R3v8_The-Evolution-of-Software-Revenue-Models-scaled.jpg)
+![](https://assets.srv.work/web/Why-Fintech-is-the-Next-Wave-in-Monetizing-Vertical-SaaS-R3v8_The-Evolution-of-Software-Revenue-Models-scaled.jpg)
 
 每隔 10 年左右，软件的发行和销售方式就会发生改变。从自有部署到订阅和自下而上的每一次演变都释放了新市场，并扩大了整个软件市场规模。到目前为止，这些软件业务模型通过扩大用户基础（从大型企业到中小型企业（SMB）和中型市场公司到个人用户）扩大了整个市场。但是金融科技业务模型通过另外两种方式扩大了软件的整体市场：
 
@@ -70,7 +70,7 @@ Fintech 还通过增加每位客户的收入并使产品更具粘性来影响垂
 
 在本节中，我们介绍了已经出现的不同模型，每种模型如何发挥作用，什么地方发挥最佳作用，带来了哪些新机会以及使您可以利用的技术合作伙伴。
 
-![](https://storage.fredliang.cn/web/Why-Fintech-is-the-Next-Wave-in-Monetizing-Vertical-SaaS-Final_Fintech-Models-scaled.jpg)
+![](https://assets.srv.work/web/Why-Fintech-is-the-Next-Wave-in-Monetizing-Vertical-SaaS-Final_Fintech-Models-scaled.jpg)
 
 ### 付款方式
 

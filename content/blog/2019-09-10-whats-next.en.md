@@ -8,7 +8,7 @@ image: '/img/eberhard.jpg'
 ---
 
 ![Dont let job title determine the type of design you do
-](https://storage.fredliang.cn/web/ECAwSgSW4AAqsYp.jpg)
+](https://assets.srv.work/web/ECAwSgSW4AAqsYp.jpg)
 
 ## Dont let job title determine what you do
 

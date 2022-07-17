@@ -38,7 +38,7 @@
           ><i class="remixicon-linkedin-fill"></i></a
         ><a
           rel="noreferrer noopener"
-          href="https://storage.fredliang.cn/Wechat-QRCode.jpeg"
+          href="https://assets.srv.work/Wechat-QRCode.jpeg"
           title="wechat"
           target="_blank"
           ><i class="remixicon-wechat-fill"></i></a

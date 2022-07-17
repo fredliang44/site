@@ -10,7 +10,7 @@ image: '/img/briana.jpg'
 > Just finished watching the second episode of the fifth season of Black Mirror, about a large social media company: Smithereens (fragments) about a carpool driver in London kidnapped an employee of a social media Internet company, triggering an international crisis.
 > The reason why this episode is singled out is because the interpretation of this episode is too close to the reality of their own exposure, especially some of the interpretation of technology and society is very profound.
 
-![account analyticsz](https://storage.fredliang.cn/web/2019-06-10-064128.png?x-oss-process=image/resize,w_1000/quality,Q_60)
+![account analyticsz](https://assets.srv.work/web/2019-06-10-064128.png?x-oss-process=image/resize,w_1000/quality,Q_60)
 
 ## Group and individual data
 

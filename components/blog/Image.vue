@@ -124,18 +124,18 @@ export default {
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: local('Inter'), url('https://storage.fredliang.cn/fonts/inter/Inter.var.woff2') format('woff2');
+  src: local('Inter'), url('https://assets.srv.work/fonts/inter/Inter.var.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Product Sans';
-  src: local('Product Sans'), url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff2');
-  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.eot?#iefix')
+  src: local('Product Sans'), url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.woff2');
+  src: url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.eot?#iefix')
       format('embedded-opentype'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff2') format('woff2'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff') format('woff'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.ttf') format('truetype'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.svg#ProductSans-Bold') format('svg');
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.woff2') format('woff2'),
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.woff') format('woff'),
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.ttf') format('truetype'),
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.svg#ProductSans-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -145,7 +145,7 @@ export default {
   font-family: 'Monaco';
   font-style: normal;
   font-weight: normal;
-  src: local('Monaco'), url('https://storage.fredliang.cn/fonts/monaco/Monaco.woff') format('woff');
+  src: local('Monaco'), url('https://assets.srv.work/fonts/monaco/Monaco.woff') format('woff');
 }` // add whatever you need here
           svgDoc.childNodes[0].prepend(style)
         })

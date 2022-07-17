@@ -25,8 +25,46 @@ module.exports = {
   theme: {
     extend: {
       typography: ({ theme }) => ({
+        sm: {
+          css: {
+            table: {
+              display: 'block',
+              maxWidth: 'fit-content',
+              margin: '0 auto',
+              overflowX: 'auto',
+              whiteSpace: 'nowrap',
+            },
+            blockquote: {
+              display: 'block',
+              overflowX: 'auto',
+              whiteSpace: 'nowrap',
+            },
+          },
+        },
+        base: {
+          css: {
+            'table, blockquote': {
+              maxWidth: 'none',
+              margin: 'unset',
+              overflowX: 'unset',
+              whiteSpace: 'unset',
+            },
+            table: {
+              display: 'table',
+            },
+          },
+        },
         DEFAULT: {
           css: {
+            'table, blockquote': {
+              maxWidth: 'none',
+              margin: 'unset',
+              overflowX: 'unset',
+              whiteSpace: 'unset',
+            },
+            table: {
+              display: 'table',
+            },
             'blockquote p:first-of-type::before': {
               content: 'none',
             },

@@ -2,15 +2,15 @@
 title: Who Knows You Better
 date: 2019-06-09T20:27:11.000Z
 draft: false
-description: "刚刚看完《黑镜》第五季第五季第二集，关于其中情节的一些思考"
-tags: ["Product Manager","Share"]
-image: "/img/briana.jpg"
+description: '刚刚看完《黑镜》第五季第五季第二集，关于其中情节的一些思考'
+tags: ['Product Manager', 'Share']
+image: '/img/briana.jpg'
 ---
 
 > 刚刚看完《黑镜》第五季第五季第二集，关于一个大型社交媒体公司: Smithereens（碎片） 讲的是伦敦一个拼车司机绑架了社交媒体互联网公司的一个员工，引发了一场国际危机。
 > 为什么单独拎出来这一集，是因为这个这一集对于事件的演绎太贴近自己接触到的现实情况了，尤其一些关于技术与社会的演绎非常的深刻。
 
-![account analyticsz](https://storage.fredliang.cn/web/2019-06-10-064128.png?x-oss-process=image/resize,w_1000/quality,Q_60)
+![account analyticsz](https://assets.srv.work/web/2019-06-10-064128.png?x-oss-process=image/resize,w_1000/quality,Q_60)
 
 ## 群体与个体数据
 
@@ -66,7 +66,7 @@ image: "/img/briana.jpg"
 
 ## 科技排毒
 
-说实话这是一个很魔幻的但又是现实的场景，比如2018年7月初，Marc Benioff (Salesforce CEO) 将他的 iPhone 和 iPad 装入FedEx 信封并邮寄到夏威夷的避暑别墅。他随后乘坐飞机离开旧金山，在加拉帕戈斯群岛，波拉波拉岛和复活节岛度过了一个安静的两周假期。并且1月达沃斯世界经济论坛期间，公开职责 Facebook，称其与烟草一样令人上瘾。
+说实话这是一个很魔幻的但又是现实的场景，比如 2018 年 7 月初，Marc Benioff (Salesforce CEO) 将他的 iPhone 和 iPad 装入 FedEx 信封并邮寄到夏威夷的避暑别墅。他随后乘坐飞机离开旧金山，在加拉帕戈斯群岛，波拉波拉岛和复活节岛度过了一个安静的两周假期。并且 1 月达沃斯世界经济论坛期间，公开职责 Facebook，称其与烟草一样令人上瘾。
 
 有一种说法是在存量用户到头的时候，大家竞争的是用户的使用时间。在这个既定目标之下，不同的应用必然会变得更加上瘾，高度集中的刺激性内容会极大地提升用户的 “High 点”，从而对其他事物降低兴趣，潜在地影响用户群体的正常生活。在通过在线广告的盈利模式下面，这种闭环连接地会更加紧密，比如在信息流产品里面，AD load 一定的情况下，用户使用时间越长，浏览的内容越多，浏览的广告也就越多，互联网公司的经济收益也越多。从某种角度，这也是一种“免费的是最贵的”的体现。
 

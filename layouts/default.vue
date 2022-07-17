@@ -105,16 +105,16 @@ h6 {
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff2');
-  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.eot?#iefix')
+  src: url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.woff2');
+  src: url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.eot?#iefix')
       format('embedded-opentype'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff2')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.woff2')
       format('woff2'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.woff')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.woff')
       format('woff'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.ttf')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.ttf')
       format('truetype'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Bold.svg#ProductSans-Bold')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Bold.svg#ProductSans-Bold')
       format('svg');
   font-weight: bold;
   font-style: normal;
@@ -123,17 +123,17 @@ h6 {
 
 @font-face {
   font-family: 'Product Sans';
-  src: url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.woff2');
+  src: url('https://assets.srv.work/fonts/product-sans/ProductSans-Regular.woff2');
   src: local('Product Sans')
-      url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.eot?#iefix')
+      url('https://assets.srv.work/fonts/product-sans/ProductSans-Regular.eot?#iefix')
       format('embedded-opentype'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.woff2')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Regular.woff2')
       format('woff2'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.woff')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Regular.woff')
       format('woff'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.ttf')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Regular.ttf')
       format('truetype'),
-    url('https://storage.fredliang.cn/fonts/product-sans/ProductSans-Regular.svg#ProductSans-Regular')
+    url('https://assets.srv.work/fonts/product-sans/ProductSans-Regular.svg#ProductSans-Regular')
       format('svg');
   font-weight: normal;
   font-style: normal;
@@ -146,7 +146,7 @@ h6 {
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url('https://storage.fredliang.cn/fonts/inter/Inter.var.woff2')
+  src: url('https://assets.srv.work/fonts/inter/Inter.var.woff2')
     format('woff2');
 }
 </style>

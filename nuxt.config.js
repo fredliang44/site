@@ -148,7 +148,7 @@ export default {
           runtimeCaching: [
             {
               // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
-              urlPattern: 'https://storage.fredliang.cn/.*',
+              urlPattern: 'https://assets.srv.work/.*',
               // Defaults to `NetworkFirst` if omitted
               handler: 'StaleWhileRevalidate',
               // Defaults to `GET` if omitted
