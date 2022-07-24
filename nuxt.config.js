@@ -32,7 +32,15 @@ const createSitemapRoutes = async () => {
   const { $content } = require('@nuxt/content')
   let posts = null
   if (posts === null || posts.length === 0)
-    posts = await $content('blog').fetch()
+    posts = await $content('blog')
+      .where(
+        process.env.NODE_ENV === 'production'
+          ? {
+              draft: { $eq: false },
+            }
+          : {}
+      )
+      .fetch()
   for (const post of posts) {
     if (post.slug.split('.').length > 1) {
       // en

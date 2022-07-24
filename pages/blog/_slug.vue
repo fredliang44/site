@@ -63,7 +63,7 @@
               {{ $dateFns.format(post.date) }}
             </p>
           </div>
-          <nuxt-content class="-mt-6" :document="post" />
+          <nuxt-content :document="post" />
           <WidgetComment />
         </article>
       </div>

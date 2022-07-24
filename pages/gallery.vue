@@ -128,7 +128,7 @@ export default {
               description:
                 'A data management tool for business. I use it for data analysis and data visualization.',
               img: '/img/tools/metabase',
-              link: 'https://data.fredliang.cn/',
+              link: 'https://data.srv.work/',
             },
             {
               name: 'Grafana',
