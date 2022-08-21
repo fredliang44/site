@@ -4,14 +4,14 @@
     <div class="footer_info">
       <p class="author">
         <a href="https://www.yuque.com/fredliang/refine">Designed</a> &amp;
-        <a href="https://github.com/fredliang44/hugo-theme-refine">Coded</a>
-        With ❤️ by <a href="https://www.fredliang.cn">Fred Liang</a>
+        <a href="https://github.com/fredliang44/site">Coded</a>
+        With ❤️ by <a href="https://lzb.im">Fred Liang</a>
       </p>
       <p class="powered_by">
         Powered By
         <a
           rel="noreferrer noopener"
-          href="https://alpha.let.sh"
+          href="https://let.sh"
           title="powerby"
           target="_blank"
           >let.sh</a

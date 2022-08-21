@@ -11,6 +11,36 @@
 
 const loadScripts = function () {
   const scripts = [
+    {
+      // data tester
+      innerHTML: `(function(win, export_obj) {
+        win['TeaAnalyticsObject'] = export_obj;
+        if (!win[export_obj]) {
+            function _collect() {
+                _collect.q.push(arguments);
+            }
+            _collect.q = _collect.q || [];
+            win[export_obj] = _collect;            
+        }
+        win[export_obj].l = +new Date();
+    })(window, 'collectEvent');
+        `,
+    },
+    {
+      src: 'https://lf3-data.volccdn.com/obj/data-static/log-sdk/collect/collect-autotrack-rangers.js',
+    },
+    {
+      // data tester
+      innerHTML: `window.collectEvent('init', { 
+        app_id:394534,
+        channel: 'cn', 
+        enable_ab_test: true,
+        enable_ab_visual: true,
+        enable_multilink: true,
+        autotrack: true  //默认关闭，需要热力图及圈选功能可开启
+       });
+       window.collectEvent('start')`,
+    },
     // {
     //   innerHTML: `(function(h,o,t,j,a,r){
     //     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};

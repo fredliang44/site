@@ -55,6 +55,16 @@ export default {
               },
             },
             {
+              name: 'Suiet',
+              description:
+                'The wallet built on Sui blockchain, designed for everyone, with everything open sourced.',
+              role: 'Creator',
+              img: '/img/products/suiet',
+              link: 'https://suiet.app',
+              stage: 'WIP',
+              tags: ['role:Creator'],
+            },
+            {
               name: 'Event Bridger',
               description:
                 'The bridge for your SaaS, IM, Device. Including Stripe, SMS, Slack, etc.',
@@ -109,7 +119,7 @@ export default {
           description: 'My Company',
           productList: [
             {
-              name: 'Oasis Networks, Inc.',
+              name: 'Oasis Networks',
               img: '/img/products/oasis',
               description:
                 'Oasis Networks, Inc. My first company, aiming to filling the gap between infra & developers.',
