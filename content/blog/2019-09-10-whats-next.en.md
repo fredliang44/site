@@ -2,7 +2,7 @@
 title: 'Thoughts about the future'
 date: 2019-09-10T00:41:57+08:00
 draft: false
-description: 'reviews, ideas and thought'
+description: 'Reviews, ideas and thought'
 tags: ['Product Manager', 'My Life', 'Share']
 image: '/img/eberhard.jpg'
 ---

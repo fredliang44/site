@@ -153,6 +153,10 @@ export default {
       type: String,
       default: '',
     },
+    codeRepo: {
+      type: String,
+      default: null,
+    },
     lock: {
       type: Boolean,
       default: false,
